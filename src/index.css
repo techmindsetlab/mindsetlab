@@ -1,3 +1,43 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Font Light */
+@font-face {
+  font-family: "NeueMachina-Light";
+  src: url("/src/assets/fonts/NeueMachina-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+/* Font Regular */
+@font-face {
+  font-family: "NeueMachina-Regular";
+  src: url("/src/assets/fonts/NeueMachina-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Font Bold */
+@font-face {
+  font-family: "NeueMachina-Bold";
+  src: url("/src/assets/fonts/NeueMachina-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+html,
+body {
+  font-family: var(--font-neue-machina-regular);
+  background-color: black;
+  cursor: none;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+:root {
+  --font-neue-machina: "NeueMachina-Light", sans-serif;
+  --font-neue-machina-regular: "NeueMachina-Regular", sans-serif;
+  --font-neue-machina-bold: "NeueMachina-Bold", sans-serif;
+}
