@@ -21,27 +21,33 @@ const Cursor = ({ isHovered }: Props) => {
     };
   };
 
-  const moveCircle = (x: number, y: number) => {
-    if (circle.current) {
-      gsap.set(circle.current, { x, y, xPercent: -50, yPercent: -50 });
-    }
-  };
-
-  const animate = () => {
-    moveCircle(mouse.current.x, mouse.current.y);
-    window.requestAnimationFrame(animate);
-  };
-
   useEffect(() => {
+    const animate = () => {
+      if (circle.current) {
+        gsap.to(circle.current, {
+          x: mouse.current.x,
+          y: mouse.current.y,
+          xPercent: -50,
+          yPercent: -50,
+          duration: 1,
+          ease: "power3.out",
+        });
+      }
+      window.requestAnimationFrame(animate);
+    };
+
     animate();
     window.addEventListener("mousemove", manageMouseMove);
-    return () => window.removeEventListener("mousemove", manageMouseMove);
+
+    return () => {
+      window.removeEventListener("mousemove", manageMouseMove);
+    };
   }, []);
 
   return (
     <div
       ref={circle}
-      className="fixed top-0 left-0 bg-white mix-blend-difference rounded-full pointer-events-none"
+      className="fixed top-0 sm:block hidden z-40 cursor-none left-0 bg-white mix-blend-difference rounded-full pointer-events-none"
       style={{
         width: size,
         height: size,
