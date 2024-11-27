@@ -20,16 +20,40 @@
 
 /* Font Bold */
 @font-face {
+  font-family: "NeueCorp-Bold";
+  src: url("/src/assets/fonts/PPNeueCorp-NormalUltrabold.otf")
+    format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
   font-family: "NeueMachina-Bold";
   src: url("/src/assets/fonts/NeueMachina-Bold.otf") format("opentype");
   font-weight: 700;
   font-style: normal;
 }
 
+/* Font Regular */
+@font-face {
+  font-family: "NeueCorp-Normal";
+  src: url("/src/assets/fonts/PPNeueCorp-NormalMedium.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "NeueCorp-Thin";
+  src: url("/src/assets/fonts/PPNeueCorp-NormalUltralight.otf")
+    format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
 html,
 body {
   font-family: var(--font-neue-machina-regular);
-  background-color: black;
+  background-color: #1e1e1e;
   cursor: none;
   margin: 0;
   padding: 0;
@@ -40,4 +64,7 @@ body {
   --font-neue-machina: "NeueMachina-Light", sans-serif;
   --font-neue-machina-regular: "NeueMachina-Regular", sans-serif;
   --font-neue-machina-bold: "NeueMachina-Bold", sans-serif;
+  --font-neue-corp-bold: "NeueCorp-Bold", sans-serif;
+  --font-neue-corp-normal: "NeueCorp-Normal", sans-serif;
+  --font-neue-corp-thin: "NeueCorp-Thin", sans-serif;
 }

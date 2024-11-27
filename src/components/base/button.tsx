@@ -1,7 +1,8 @@
 import React from "react";
+import { IoIosArrowForward } from "react-icons/io";
 
-type ButtonVariant = "primary" | "secondary" | "danger" | "success";
-type ButtonSize = "small" | "medium" | "large";
+type ButtonVariant = "primary" | "secondary";
+type ButtonSize = "extrasmall" | "small" | "medium" | "large";
 
 interface ButtonProps {
   text: string;
@@ -10,6 +11,7 @@ interface ButtonProps {
   size?: ButtonSize;
   disabled?: boolean;
   className?: string;
+  isEnabledArrow?: boolean;
   style?: React.CSSProperties;
 }
 
@@ -19,17 +21,17 @@ const Button: React.FC<ButtonProps> = ({
   variant = "primary",
   size = "medium",
   disabled = false,
+  isEnabledArrow = false,
   className = "",
   style = {},
 }) => {
-  const baseStyle = "rounded px-4 py-2 font-bold focus:outline-none";
+  const baseStyle = "rounded font-bold focus:outline-none";
   const variantStyles: Record<ButtonVariant, string> = {
-    primary: "bg-blue-500 text-white hover:bg-blue-600",
-    secondary: "bg-gray-500 text-white hover:bg-gray-600",
-    danger: "bg-red-500 text-white hover:bg-red-600",
-    success: "bg-green-500 text-white hover:bg-green-600",
+    primary: "bg-[#1E1E1E] text-[#FAFAFA]",
+    secondary: "bg-[#FAFAFA] text-[#1e1e1e]",
   };
   const sizeStyles: Record<ButtonSize, string> = {
+    extrasmall: "text-[10px]",
     small: "text-sm",
     medium: "text-base",
     large: "text-lg",
@@ -38,11 +40,14 @@ const Button: React.FC<ButtonProps> = ({
   return (
     <button
       onClick={onClick}
-      className={`${baseStyle} ${variantStyles[variant]} ${sizeStyles[size]} ${className}`}
+      className={`${baseStyle} cursor-none ${
+        isEnabledArrow && "flex items-center justify-between"
+      } ${variantStyles[variant]} ${sizeStyles[size]} ${className}`}
       style={style}
       disabled={disabled}
     >
       {text}
+      {isEnabledArrow && <IoIosArrowForward />}
     </button>
   );
 };

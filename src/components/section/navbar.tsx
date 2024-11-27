@@ -15,7 +15,7 @@ interface Props {
 const Navbar = ({ setIsHovered }: Props) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
   const [scrollProgress, setScrollProgress] = useState(0);
-  const colorBackground = `linear-gradient(90deg, rgba(255, 255, 255, 1) ${scrollProgress}%, rgba(0, 0, 0, 1) ${scrollProgress}%)`;
+  const colorBackground = `linear-gradient(90deg, rgba(255, 255, 255, 1) ${scrollProgress}%, #1e1e1e ${scrollProgress}%)`;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,23 +33,23 @@ const Navbar = ({ setIsHovered }: Props) => {
   }, []);
 
   return (
-    <header className="sticky top-0 ">
+    <header className="sticky z-10 top-0">
       {/* DESKTOP NAVBAR */}
       <nav
         aria-label="Global"
-        className="fixed top-0 left-0 w-full z-50 border border-[#808080] transition-all duration-200"
+        className="fixed top-0 left-0 w-full md:border border-b border-[#808080] transition-all duration-200"
       >
         <div
           style={{ background: colorBackground }}
-          className={`mx-auto flex max-w-8xl items-center justify-between p-4 lg:p-4 lg:px-8 relative z-10`}
+          className={`mx-auto max-w-8xl flex items-center justify-between p-4 lg:px-12 relative z-10`}
         >
           <div className="flex lg:flex-1">
             <a href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">Mindsetlab Creative</span>
               <img
                 alt="Logo"
-                src="/src/assets/icons/mindset-logo.svg"
-                className="h-10 w-auto text-white mix-blend-difference"
+                src="/mindsetlab_logo.svg"
+                className="h-8 w-auto text-white mix-blend-difference"
               />
             </a>
           </div>
@@ -58,9 +58,9 @@ const Navbar = ({ setIsHovered }: Props) => {
             <button
               type="button"
               onClick={() => setMobileMenuOpen(true)}
-              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-400"
+              className="-m-2.5 inline-flex items-center justify-center rounded-md  text-gray-400"
             >
-              <Bars3Icon aria-hidden="true" className="h-6 w-6" />
+              <Bars3Icon aria-hidden="true" className="h-12 w-12" />
             </button>
           </div>
 
@@ -68,7 +68,7 @@ const Navbar = ({ setIsHovered }: Props) => {
             {navigation.map((item, index) => (
               <motion.div
                 key={item.name}
-                className="text-sm flex items-center gap-2 cursor-none mix-blend-difference text-white font-semibold"
+                className="text-sm flex items-center gap-2 mix-blend-difference text-white font-semibold"
                 initial={{ opacity: 0, x: -10 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.3, delay: index * 0.2 }}
@@ -85,16 +85,59 @@ const Navbar = ({ setIsHovered }: Props) => {
                   }`}
                 >
                   <Link
-                    key={item.name}
                     to={item.href}
-                    className="mix-blend-difference font-semibold"
+                    className="mix-blend-difference cursor-none font-semibold"
                   >
-                    <Paragraph
-                      onMouseEnter={() => setIsHovered(true)}
-                      onMouseLeave={() => setIsHovered(false)}
-                    >
-                      {item.name}
-                    </Paragraph>
+                    {item.name !== "contact" ? (
+                      <motion.span
+                        onMouseEnter={() => setIsHovered(true)}
+                        onMouseLeave={() => setIsHovered(false)}
+                        className="inline-block"
+                        initial="visible"
+                        whileHover="glitch"
+                        variants={{
+                          visible: {
+                            opacity: 1,
+                            rotate: "0deg",
+                          },
+                          glitch: {
+                            opacity: 0.9,
+                            rotate: ["0deg", "5deg", "-5deg", "0deg"],
+                            transition: {
+                              duration: 0.3,
+                              delay: 0.05,
+                              ease: "easeOut",
+                              staggerChildren: 0.1,
+                            },
+                          },
+                        }}
+                      >
+                        {item.name.split("").map((char, i) => (
+                          <motion.span
+                            key={i}
+                            variants={{
+                              visible: {
+                                opacity: 1,
+                                rotate: "0deg",
+                              },
+                              glitch: {
+                                opacity: [1, 0, 1],
+                                rotate: ["0deg", "5deg", "-5deg", "0deg"],
+                                transition: {
+                                  duration: 0.3,
+                                  delay: i * 0.05,
+                                  ease: "easeOut",
+                                },
+                              },
+                            }}
+                          >
+                            {char}
+                          </motion.span>
+                        ))}
+                      </motion.span>
+                    ) : (
+                      <Paragraph>{item.name}</Paragraph>
+                    )}
                   </Link>
                   <FaArrowRightLong
                     className={`${
@@ -115,15 +158,11 @@ const Navbar = ({ setIsHovered }: Props) => {
         className="lg:hidden"
       >
         <div className="fixed inset-0 z-10" />
-        <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-black border-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-white/10">
+        <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-[#1e1e1e] border-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-white/10">
           <div className="flex items-center justify-between">
             <a href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">Mindsetlab Creative</span>
-              <img
-                alt=""
-                src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=500"
-                className="h-8 w-auto"
-              />
+              <img alt="" src="/mindsetlab_logo.svg" className="h-8 w-auto" />
             </a>
             <button
               type="button"

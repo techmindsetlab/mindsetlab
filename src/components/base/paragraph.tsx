@@ -6,7 +6,7 @@ interface Props {
   className?: string;
   children?: React.ReactNode;
   style?: React.CSSProperties;
-  size?: "sm" | "md" | "lg";
+  size?: "mini" | "sm" | "md" | "lg" | "xl" | "xxl" | "xxxl";
   onMouseEnter?: React.MouseEventHandler<HTMLParagraphElement>;
   onMouseLeave?: React.MouseEventHandler<HTMLParagraphElement>;
 }
@@ -21,9 +21,13 @@ const Paragraph = ({
   size = "md",
 }: Props) => {
   const sizeClasses = {
+    mini: "text-[8px]",
     sm: "text-sm",
     md: "text-base",
     lg: "text-lg",
+    xl: "text-xl",
+    xxl: "text-2xl",
+    xxxl: "text-4xl",
   };
 
   return (
