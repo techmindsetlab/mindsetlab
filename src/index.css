@@ -50,6 +50,29 @@
   font-style: normal;
 }
 
+.btn-five::before {
+  transition: transform 0.15s, 0.15s border-radius 0.15s;
+  opacity: 0;
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(0.1, 0.1);
+  border-radius: 50%;
+}
+
+.btn-five:hover::before {
+  opacity: 1;
+  transform: scale(1, 1);
+  border-radius: 0;
+}
+
+.btn-five::after {
+  transition: all 0.3s;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-five:hover::after {
+  opacity: 0;
+}
+
 html,
 body {
   font-family: var(--font-neue-machina-regular);

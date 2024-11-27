@@ -44,7 +44,7 @@ const Navbar = ({ setIsHovered }: Props) => {
           className={`mx-auto max-w-8xl flex items-center justify-between p-4 lg:px-12 relative z-10`}
         >
           <div className="flex lg:flex-1">
-            <a href="#" className="-m-1.5 p-1.5">
+            <a href="/" className="-m-1.5 p-1.5 cursor-none">
               <span className="sr-only">Mindsetlab Creative</span>
               <img
                 alt="Logo"
@@ -86,7 +86,7 @@ const Navbar = ({ setIsHovered }: Props) => {
                 >
                   <Link
                     to={item.href}
-                    className="mix-blend-difference cursor-none font-semibold"
+                    className={` mix-blend-difference cursor-none font-semibold`}
                   >
                     {item.name !== "contact" ? (
                       <motion.span
@@ -102,7 +102,6 @@ const Navbar = ({ setIsHovered }: Props) => {
                           },
                           glitch: {
                             opacity: 0.9,
-                            rotate: ["0deg", "5deg", "-5deg", "0deg"],
                             transition: {
                               duration: 0.3,
                               delay: 0.05,
