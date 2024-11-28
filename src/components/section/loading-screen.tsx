@@ -15,7 +15,7 @@ const LoadingScreen: React.FC = () => {
         }
         return prev + 1;
       });
-    }, 20);
+    }, 17);
 
     return () => clearInterval(interval);
   }, [navigate]);
@@ -27,7 +27,7 @@ const LoadingScreen: React.FC = () => {
       animate={{
         clipPath:
           progress === 100
-            ? "polygon(0 0, 0% 0, 0% 100%, 0 100%)"
+            ? "polygon(0 0, 100% 0, 100% 0, 0 0)"
             : "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
       }}
       transition={{

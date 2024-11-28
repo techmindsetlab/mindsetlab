@@ -47,7 +47,7 @@ const Cursor = ({ isHovered }: Props) => {
   return (
     <div
       ref={circle}
-      className="fixed top-0 sm:block hidden z-40 cursor-none left-0 bg-white mix-blend-difference rounded-full pointer-events-none"
+      className="fixed top-0 sm:block hidden z-40 cursor-none left-0 bg-[#FAFAFA] mix-blend-difference rounded-full pointer-events-none"
       style={{
         width: size,
         height: size,

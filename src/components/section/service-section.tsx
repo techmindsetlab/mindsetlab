@@ -1,14 +1,50 @@
+import { useState, useEffect } from "react";
 import Button from "../base/button";
 import Paragraph from "../base/paragraph";
 import Title from "../base/title";
+import { motion } from "framer-motion";
 
-const Service = () => {
+interface Props {
+  scrollRotation: number;
+}
+
+const Service = ({ scrollRotation }: Props) => {
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth >= 1024);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const getImagePosition = () => {
+    const startScroll = 2600;
+
+    if (scrollRotation >= startScroll) {
+      return "0%";
+    }
+
+    const offset = (startScroll - scrollRotation) / 10;
+    const translateValue = offset > 0 ? -offset : 0;
+    return `${translateValue}%`;
+  };
+
   return (
     <div className="bg-[#1E1E1E] lg:px-14 p-5">
-      <img
+      <motion.img
         src="/service_header.svg"
         className="w-full h-full"
         alt="mindsetlab creative"
+        style={{
+          transform: `${
+            isDesktop ? `translateX(${getImagePosition()})` : "none"
+          } `,
+          transition: "transform 0.1s ease-out",
+        }}
       />
 
       {/* DIVIDER */}
@@ -37,9 +73,9 @@ const Service = () => {
       <Button
         text={"Our Service"}
         size="small"
-        className="w-36 lg:w-64 font-neue-corp-thin  mt-4 px-3 lg:py-2 lg:text-lg py-1.5"
+        isPrimary={false}
+        className="w-44 lg:w-64 font-neue-corp-thin  mt-4 px-3 lg:py-2 lg:text-lg py-1.5"
         isEnabledArrow
-        variant="secondary"
       />
     </div>
   );

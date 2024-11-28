@@ -1,14 +1,59 @@
+import { useState, useEffect } from "react";
 import Button from "../base/button";
 import Paragraph from "../base/paragraph";
+import Title from "../base/title";
+import { motion } from "framer-motion";
 
-const Contact = () => {
+interface Props {
+  scrollRotation: number;
+}
+
+const Contact = ({ scrollRotation }: Props) => {
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth >= 1024);
+    };
+
+    handleResize(); 
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const getImagePosition = () => {
+    const startScroll = 2600;
+    const endScroll = 3000;
+    const initialOffset = 30;
+    const finalOffset = 0;
+
+    if (scrollRotation <= startScroll) {
+      return `${initialOffset}%`;
+    }
+    if (scrollRotation >= endScroll) {
+      return `${finalOffset}%`;
+    }
+
+    const progress = (scrollRotation - startScroll) / (endScroll - startScroll);
+    const translateValue =
+      initialOffset - progress * (initialOffset - finalOffset);
+    return `${translateValue}%`;
+  };
   return (
-    <div className="bg-[#FAFAFA] lg:px-14 p-5">
-      <img
-        src="/contact_header.svg"
-        className="w-full h-full"
-        alt="mindsetlab creative"
-      />
+    <div className="bg-[#FAFAFA]  lg:px-14 lg:space-y-6 lg:py-12 p-5">
+      <div className="overflow-hidden relative">
+        <motion.img
+          src="/contact_header.svg"
+          className="w-full h-full"
+          alt="mindsetlab creative"
+          style={{
+            transform: `${
+              isDesktop ? `translateX(${getImagePosition()})` : "none"
+            } `,
+            transition: "transform 0.1s ease-out",
+          }}
+        />
+      </div>
 
       {/* DIVIDER */}
       <div className="flex gap-2 my-2 items-center">
@@ -19,14 +64,16 @@ const Contact = () => {
         </Paragraph>
       </div>
 
-      <Paragraph size="xl" className="text-[#1e1e1e] lg:text-3xl w-[80%]">
-        Buatkan copy pertanyaan kebutuhan client?
-      </Paragraph>
+      <Title
+        text="Buatkan copy pertanyaan kebutuhan client?"
+        headerSize="xl"
+        className="text-[#1e1e1e] lg:text-3xl w-[80%]"
+      />
 
       <Button
         text={"Contact Us"}
         size="small"
-        className="w-36 lg:w-64 font-neue-corp-thin mt-4 px-3 lg:py-2 lg:text-lg py-1.5"
+        className="w-44 lg:w-64 font-neue-corp-thin mt-4 px-3 lg:py-2 lg:text-lg py-1.5"
         isEnabledArrow
       />
     </div>
