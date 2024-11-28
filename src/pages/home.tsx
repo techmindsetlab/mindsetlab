@@ -5,6 +5,7 @@ import Works from "../components/section/works-section";
 import About from "../components/section/about-section";
 import Service from "../components/section/service-section";
 import Contact from "../components/section/contact-section";
+import Footer from "../components/section/footer";
 
 interface Props {
   setIsHovered: (isHovered: boolean) => void;
@@ -28,9 +29,9 @@ const Home = ({ setIsHovered }: Props) => {
 
     const handleScroll = () => {
       const scrollY = window.scrollY;
-      const maxScale = 1.2;
+      const maxScale = 1.5;
       const minScale = 1;
-      const calculatedScale = Math.min(maxScale, minScale + scrollY / 1000); 
+      const calculatedScale = Math.min(maxScale, minScale + scrollY / 500);
 
       animationFrame = requestAnimationFrame(() => {
         setScale(calculatedScale);
@@ -46,7 +47,7 @@ const Home = ({ setIsHovered }: Props) => {
   }, []);
 
   return (
-    <div>
+    <div className="w-screen">
       <div className="px-5 lg:max-w-[85rem] max-w-full mx-auto">
         <Header
           onMouseEnter={() => setIsHovered(true)}
@@ -55,12 +56,13 @@ const Home = ({ setIsHovered }: Props) => {
           scale={scale}
         />
         <Divider scrollRotation={scrollRotation} />
-        <Works />
+        <Works scrollRotation={scrollRotation} />
       </div>
       <div className="mt-6">
         <About />
-        <Service />
-        <Contact />
+        <Service scrollRotation={scrollRotation} />
+        <Contact scrollRotation={scrollRotation} />
+        <Footer />
       </div>
     </div>
   );

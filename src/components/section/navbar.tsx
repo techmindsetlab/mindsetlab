@@ -6,7 +6,7 @@ import { navigation } from "../../helper/const";
 import { Link } from "react-router-dom";
 import { FaArrowRightLong } from "react-icons/fa6";
 import Paragraph from "../base/paragraph";
-import { motion } from "framer-motion";
+import AnimatedLink from "../base/link";
 
 interface Props {
   setIsHovered: (isHovered: boolean) => void;
@@ -44,14 +44,19 @@ const Navbar = ({ setIsHovered }: Props) => {
           className={`mx-auto max-w-8xl flex items-center justify-between p-4 lg:px-12 relative z-10`}
         >
           <div className="flex lg:flex-1">
-            <a href="/" className="-m-1.5 p-1.5 cursor-none">
+            <Link
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+              to="/"
+              className="-m-1.5 p-1.5 cursor-none"
+            >
               <span className="sr-only">Mindsetlab Creative</span>
               <img
                 alt="Logo"
                 src="/mindsetlab_logo.svg"
-                className="h-8 w-auto text-white mix-blend-difference"
+                className="h-8 w-auto text-[#FAFAFA] mix-blend-difference"
               />
-            </a>
+            </Link>
           </div>
 
           <div className="flex lg:hidden">
@@ -65,86 +70,18 @@ const Navbar = ({ setIsHovered }: Props) => {
           </div>
 
           <div className="hidden lg:flex lg:gap-x-12">
-            {navigation.map((item, index) => (
-              <motion.div
+            {navigation.map((item) => (
+              <AnimatedLink
+                additionalStyle={`uppercase ${
+                  item.name === "contact" &&
+                  "border border-[#FAFAFA] rounded-full p-3"
+                }`}
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
                 key={item.name}
-                className="text-sm flex items-center gap-2 mix-blend-difference text-white font-semibold"
-                initial={{ opacity: 0, x: -10 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.3, delay: index * 0.2 }}
-              >
-                <motion.div
-                  whileHover={{
-                    scale: 1.1,
-                  }}
-                  whileTap={{ scale: 0.95 }}
-                  transition={{ duration: 0.2, ease: "easeOut" }}
-                  className={`text-sm flex items-center gap-2 ${
-                    item.name === "contact" &&
-                    "border border-white rounded-full py-1.5 px-4"
-                  }`}
-                >
-                  <Link
-                    to={item.href}
-                    className={` mix-blend-difference cursor-none font-semibold`}
-                  >
-                    {item.name !== "contact" ? (
-                      <motion.span
-                        onMouseEnter={() => setIsHovered(true)}
-                        onMouseLeave={() => setIsHovered(false)}
-                        className="inline-block"
-                        initial="visible"
-                        whileHover="glitch"
-                        variants={{
-                          visible: {
-                            opacity: 1,
-                            rotate: "0deg",
-                          },
-                          glitch: {
-                            opacity: 0.9,
-                            transition: {
-                              duration: 0.3,
-                              delay: 0.05,
-                              ease: "easeOut",
-                              staggerChildren: 0.1,
-                            },
-                          },
-                        }}
-                      >
-                        {item.name.split("").map((char, i) => (
-                          <motion.span
-                            key={i}
-                            variants={{
-                              visible: {
-                                opacity: 1,
-                                rotate: "0deg",
-                              },
-                              glitch: {
-                                opacity: [1, 0, 1],
-                                rotate: ["0deg", "5deg", "-5deg", "0deg"],
-                                transition: {
-                                  duration: 0.3,
-                                  delay: i * 0.05,
-                                  ease: "easeOut",
-                                },
-                              },
-                            }}
-                          >
-                            {char}
-                          </motion.span>
-                        ))}
-                      </motion.span>
-                    ) : (
-                      <Paragraph>{item.name}</Paragraph>
-                    )}
-                  </Link>
-                  <FaArrowRightLong
-                    className={`${
-                      item.name === "contact" ? "block" : "hidden"
-                    }`}
-                  />
-                </motion.div>
-              </motion.div>
+                name={item.name}
+                to={"/"}
+              />
             ))}
           </div>
         </div>
@@ -157,7 +94,7 @@ const Navbar = ({ setIsHovered }: Props) => {
         className="lg:hidden"
       >
         <div className="fixed inset-0 z-10" />
-        <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-[#1e1e1e] border-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-white/10">
+        <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-[#1e1e1e] border-[#FAFAFA] px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-[#FAFAFA]/10">
           <div className="flex items-center justify-between">
             <a href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">Mindsetlab Creative</span>

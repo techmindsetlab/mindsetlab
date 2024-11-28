@@ -5,11 +5,11 @@ interface Props {
 const Divider = ({ scrollRotation }: Props) => {
   return (
     <div className="flex items-center my-4 lg:my-8">
-      <div className="relative h-[2rem] w-[2rem] mr-2 flex items-center justify-center">
+      <div className="relative lg:h-[4rem] lg:w-[4rem] h-[2rem] w-[2rem] mr-2 flex items-center justify-center">
         <img
           src="/mindsetlab_logo.svg"
           alt="Mindsetlab Logo"
-          className="absolute h-[6px] w-[6px]"
+          className="absolute h-[6px] w-[6px] lg:h-[10px] lg:w-[10px]"
         />
 
         <img
