@@ -7,6 +7,11 @@ export interface WorksData {
     height: number;
 }
 
+export interface WorksDataProps {
+    title: string;
+    tagging: string;
+    imageUrl: string;
+}
 
 export const works: WorksData[] = [
     {
@@ -139,8 +144,47 @@ export const works: WorksData[] = [
     }, // vertical
 ];
 
+export const allWorksData: WorksDataProps[] = [
+    {
+        title: "FOOT LOCKER SOCIAL MEDIA",
+        tagging: "Social Media",
+        imageUrl: "https://www.stockvault.net/data/2012/10/29/137060/preview16.jpg",
+    },
+    {
+        title: "FOOT LOCKER SOCIAL MEDIA",
+        tagging: "Social Media",
+        imageUrl: "https://www.stockvault.net/data/2014/10/06/163147/preview16.jpg",
+    },
+    {
+        title: "FOOT LOCKER SOCIAL MEDIA",
+        tagging: "Social Media",
+        imageUrl: "https://www.stockvault.net/data/2016/03/14/187739/preview16.jpg",
+    },
+    {
+        title: "FOOT LOCKER SOCIAL MEDIA",
+        tagging: "Social Media",
+        imageUrl: "https://www.stockvault.net/data/2016/03/14/187732/preview16.jpg",
+    },
+    {
+        title: "FOOT LOCKER SOCIAL MEDIA",
+        tagging: "Social Media",
+        imageUrl: "https://www.stockvault.net/data/2016/03/14/187732/preview16.jpg",
+    },
+    {
+        title: "FOOT LOCKER SOCIAL MEDIA",
+        tagging: "Social Media",
+        imageUrl: "https://www.stockvault.net/data/2016/03/14/187732/preview16.jpg",
+    },
+    {
+        title: "FOOT LOCKER SOCIAL MEDIA",
+        tagging: "Social Media",
+        imageUrl: "https://www.stockvault.net/data/2016/03/14/187732/preview16.jpg",
+    },
+];
+
+
 export const navigation = [
-    { name: "works", href: "#" },
+    { name: "works", href: "/works" },
     { name: "about", href: "#" },
     { name: "contact", href: "#" },
 ];

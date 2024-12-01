@@ -3,6 +3,7 @@ import Button from "../base/button";
 import Paragraph from "../base/paragraph";
 import Title from "../base/title";
 import { motion } from "framer-motion";
+import ContactSVG from "../../animation/contact-hover-masking";
 
 interface Props {
   scrollRotation: number;
@@ -16,7 +17,7 @@ const Contact = ({ scrollRotation }: Props) => {
       setIsDesktop(window.innerWidth >= 1024);
     };
 
-    handleResize(); 
+    handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -42,17 +43,17 @@ const Contact = ({ scrollRotation }: Props) => {
   return (
     <div className="bg-[#FAFAFA]  lg:px-14 lg:space-y-6 lg:py-12 p-5">
       <div className="overflow-hidden relative">
-        <motion.img
-          src="/contact_header.svg"
+        <motion.div
           className="w-full h-full"
-          alt="mindsetlab creative"
           style={{
             transform: `${
               isDesktop ? `translateX(${getImagePosition()})` : "none"
             } `,
             transition: "transform 0.1s ease-out",
           }}
-        />
+        >
+          <ContactSVG />
+        </motion.div>
       </div>
 
       {/* DIVIDER */}

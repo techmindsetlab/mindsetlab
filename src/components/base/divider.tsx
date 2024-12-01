@@ -1,8 +1,12 @@
+import Paragraph from "./paragraph";
+
 interface Props {
   scrollRotation: number;
+  isHasText?: boolean;
+  text?: string;
 }
 
-const Divider = ({ scrollRotation }: Props) => {
+const Divider = ({ scrollRotation, isHasText = false, text }: Props) => {
   return (
     <div className="flex items-center my-4 lg:my-8">
       <div className="relative lg:h-[4rem] lg:w-[4rem] h-[2rem] w-[2rem] mr-2 flex items-center justify-center">
@@ -22,6 +26,11 @@ const Divider = ({ scrollRotation }: Props) => {
         />
       </div>
       <div className="border h-fit w-full" />
+      {isHasText && (
+        <Paragraph className="text-[12px] font-neue-corp-thin text-[#fafafa] w-fit ml-2">
+          {text}
+        </Paragraph>
+      )}
     </div>
   );
 };

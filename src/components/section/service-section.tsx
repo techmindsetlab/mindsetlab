@@ -3,6 +3,7 @@ import Button from "../base/button";
 import Paragraph from "../base/paragraph";
 import Title from "../base/title";
 import { motion } from "framer-motion";
+import ServiceSVG from "../../animation/service-hover-masking";
 
 interface Props {
   scrollRotation: number;
@@ -34,18 +35,18 @@ const Service = ({ scrollRotation }: Props) => {
   };
 
   return (
-    <div className="bg-[#1E1E1E] lg:px-14 p-5">
-      <motion.img
-        src="/service_header.svg"
+    <div className="bg-[#1E1E1E] lg:py-12 lg:px-14 p-5">
+      <motion.div
         className="w-full h-full"
-        alt="mindsetlab creative"
         style={{
           transform: `${
             isDesktop ? `translateX(${getImagePosition()})` : "none"
           } `,
           transition: "transform 0.1s ease-out",
         }}
-      />
+      >
+        <ServiceSVG />
+      </motion.div>
 
       {/* DIVIDER */}
       <div className="flex gap-2 my-2 items-center">
