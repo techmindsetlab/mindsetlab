@@ -25,7 +25,7 @@ const Dropdown: React.FC<DropdownProps> = ({
         onClick={toggleDropdown}
         className="bg-[#1e1e1e] justify-between text-[14px] w-[10rem] cursor-pointer text-[#fafafa] font-neue-corp-thin border border-[#fafafa] py-1 px-4 rounded-md flex items-center gap-2"
       >
-        {selectedCategory ? selectedCategory : "Project Category"}
+        {selectedCategory ? selectedCategory : "All Works"}
         <BsChevronDown
           className={`transition-transform duration-300 transform ${
             isOpen ? "rotate-180" : "rotate-0"

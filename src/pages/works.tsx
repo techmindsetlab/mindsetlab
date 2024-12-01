@@ -4,6 +4,8 @@ import Divider from "../components/base/divider";
 import Dropdown from "../components/base/dropdown";
 import Paragraph from "../components/base/paragraph";
 import WorksCard from "../components/section/all-works";
+import { worksCategory, allWorksData } from "../helper/const";
+import { motion } from "motion/react";
 
 interface Props {
   onMouseEnter?: React.MouseEventHandler<HTMLParagraphElement>;
@@ -23,6 +25,11 @@ const Works = ({
   const handleSelect = (option: string) => {
     setSelectedCategory(option);
   };
+
+  const filteredWorksData =
+    selectedCategory && selectedCategory !== "All Works"
+      ? allWorksData.filter((item) => item.tagging === selectedCategory)
+      : allWorksData;
 
   return (
     <div className="max-w-full mx-auto">
@@ -83,12 +90,7 @@ const Works = ({
         <div className="mb-24 mt-12 flex items-center">
           <div className="w-fit">
             <Dropdown
-              options={[
-                "Social Media",
-                "Website",
-                "Virtual Website",
-                "Campaign",
-              ]}
+              options={worksCategory}
               onSelect={handleSelect}
               selectedCategory={selectedCategory}
             />
@@ -96,7 +98,15 @@ const Works = ({
           <div className="border w-full h-fit mx-2 border-[#FAFAFA]" />
           <img src="/gradient_octagon.svg" className="w-8  h-8" />
         </div>
-        <WorksCard />
+        <motion.div
+          key={selectedCategory}
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: 50 }}
+          transition={{ duration: 0.5, ease: "easeInOut" }}
+        >
+          <WorksCard data={filteredWorksData} />
+        </motion.div>
       </div>
     </div>
   );
