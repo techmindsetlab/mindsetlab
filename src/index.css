@@ -185,6 +185,29 @@ $speed: 0.5s;
   transform: rotate(20deg);
 }
 
+//! MASKING RANDOM IMAGE
+@keyframes randomColor {
+  0% {
+    fill: rgb(255, 0, 0); /* red */
+  }
+  25% {
+    fill: rgb(0, 255, 0); /* green */
+  }
+  50% {
+    fill: rgb(0, 0, 255); /* blue */
+  }
+  75% {
+    fill: rgb(255, 255, 0); /* yellow */
+  }
+  100% {
+    fill: rgb(255, 0, 255); /* purple */
+  }
+}
+
+.animate-random-color {
+  animation: randomColor 1s infinite alternate;
+}
+
 html,
 body {
   font-family: var(--font-neue-machina-regular);

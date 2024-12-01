@@ -17,7 +17,7 @@ const AnimatedLink = ({
   additionalStyle,
 }: Props) => {
   return (
-    <Link to={to} className={`link flex items-center mix-blend-difference ${additionalStyle}`}>
+    <Link to={to} className={`link flex mix-blend-difference ${additionalStyle}`}>
       <span
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}

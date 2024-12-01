@@ -72,15 +72,15 @@ const Navbar = ({ setIsHovered }: Props) => {
           <div className="hidden lg:flex lg:gap-x-12">
             {navigation.map((item) => (
               <AnimatedLink
-                additionalStyle={`uppercase ${
+                additionalStyle={`uppercase cursor-none ${
                   item.name === "contact" &&
-                  "border border-[#FAFAFA] rounded-full p-3"
+                  "border border-[#FAFAFA] rounded-full px-3 "
                 }`}
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
                 key={item.name}
                 name={item.name}
-                to={"/"}
+                to={item.href}
               />
             ))}
           </div>

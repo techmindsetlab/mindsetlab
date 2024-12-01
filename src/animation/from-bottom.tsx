@@ -16,7 +16,7 @@ const WrapperAnimation: React.FC<WrapperAnimationProps> = ({
   duration = 1.5,
   wrapperStyle = "",
   motionStyle = "",
-  delay = 2,
+  delay = 0,
 }) => {
   return (
     <div className={`relative overflow-hidden ${wrapperStyle}`}>
