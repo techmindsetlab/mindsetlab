@@ -152,32 +152,17 @@ export const allWorksData: WorksDataProps[] = [
     },
     {
         title: "FOOT LOCKER SOCIAL MEDIA",
-        tagging: "Social Media",
+        tagging: "Campaign",
         imageUrl: "https://www.stockvault.net/data/2014/10/06/163147/preview16.jpg",
     },
     {
         title: "FOOT LOCKER SOCIAL MEDIA",
-        tagging: "Social Media",
+        tagging: "Website Development",
         imageUrl: "https://www.stockvault.net/data/2016/03/14/187739/preview16.jpg",
     },
     {
         title: "FOOT LOCKER SOCIAL MEDIA",
-        tagging: "Social Media",
-        imageUrl: "https://www.stockvault.net/data/2016/03/14/187732/preview16.jpg",
-    },
-    {
-        title: "FOOT LOCKER SOCIAL MEDIA",
-        tagging: "Social Media",
-        imageUrl: "https://www.stockvault.net/data/2016/03/14/187732/preview16.jpg",
-    },
-    {
-        title: "FOOT LOCKER SOCIAL MEDIA",
-        tagging: "Social Media",
-        imageUrl: "https://www.stockvault.net/data/2016/03/14/187732/preview16.jpg",
-    },
-    {
-        title: "FOOT LOCKER SOCIAL MEDIA",
-        tagging: "Social Media",
+        tagging: "VR Website",
         imageUrl: "https://www.stockvault.net/data/2016/03/14/187732/preview16.jpg",
     },
 ];
@@ -188,3 +173,5 @@ export const navigation = [
     { name: "about", href: "#" },
     { name: "contact", href: "#" },
 ];
+
+export const worksCategory = ["All Works", "Social Media", "Campaign", "Website Development", "VR Website"]
