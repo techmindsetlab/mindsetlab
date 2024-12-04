@@ -81,7 +81,7 @@ const Header = ({
             </BottomAnimation>
           </div>
 
-          <div className="relative h-[5rem] w-[5rem] flex items-center justify-center">
+          <div className="relative h-[5rem] lg:hidden w-[5rem] flex items-center justify-center">
             <img
               src="/inner_octagon.svg"
               alt="Inner Octagon Logo"

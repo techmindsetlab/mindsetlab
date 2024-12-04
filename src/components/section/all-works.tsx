@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import Button from "../base/button";
 import { WorksDataProps } from "../../helper/const";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
-    data: WorksDataProps[]
+  data: WorksDataProps[];
 }
 
-const WorksCard = ({data}: Props) => {
+const WorksCard = ({ data }: Props) => {
+  const navigate = useNavigate();
   const [visibleIndex, setVisibleIndex] = useState(0);
 
   useEffect(() => {
@@ -72,6 +74,21 @@ const WorksCard = ({data}: Props) => {
 
             <div className="w-full flex justify-start">
               <Button
+                onClick={() =>
+                  navigate(
+                    `/works/${item.title.replace(/\s+/g, "-").toLowerCase()}`,
+                    {
+                      state: {
+                        title: item.title,
+                        tagging: item.tagging,
+                        imageUrl: item.imageUrl,
+                        listWorks: item.listWorks,
+                        description: item.description,
+                        socmedImg: item.socmedImg,
+                      },
+                    }
+                  )
+                }
                 text={"Detail Work"}
                 size="small"
                 isPrimary={false}

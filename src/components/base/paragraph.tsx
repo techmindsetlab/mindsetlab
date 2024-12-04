@@ -6,7 +6,7 @@ interface Props {
   className?: string;
   children?: React.ReactNode;
   style?: React.CSSProperties;
-  size?: "mini" | "sm" | "md" | "lg" | "xl" | "xxl" | "xxxl";
+  size?: "mini" | "sm" | "md" | "lg" | "xl" | "xxl" | "xxxl" | "ultra";
   onMouseEnter?: React.MouseEventHandler<HTMLParagraphElement>;
   onMouseLeave?: React.MouseEventHandler<HTMLParagraphElement>;
 }
@@ -28,6 +28,7 @@ const Paragraph = ({
     xl: "text-xl",
     xxl: "text-2xl",
     xxxl: "text-4xl",
+    ultra: "text-[3rem]",
   };
 
   return (

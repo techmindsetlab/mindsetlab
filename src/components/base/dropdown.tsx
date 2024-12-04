@@ -23,7 +23,7 @@ const Dropdown: React.FC<DropdownProps> = ({
     <div className="relative">
       <button
         onClick={toggleDropdown}
-        className="bg-[#1e1e1e] justify-between text-[14px] w-[10rem] cursor-pointer text-[#fafafa] font-neue-corp-thin border border-[#fafafa] py-1 px-4 rounded-md flex items-center gap-2"
+        className="bg-[#1e1e1e] cursor-none justify-between text-[14px] w-[10rem] text-[#fafafa] font-neue-corp-thin border border-[#fafafa] py-1 px-4 rounded-md flex items-center gap-2"
       >
         {selectedCategory ? selectedCategory : "All Works"}
         <BsChevronDown

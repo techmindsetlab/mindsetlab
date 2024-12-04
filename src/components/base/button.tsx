@@ -10,6 +10,7 @@ interface ButtonProps {
   className?: string;
   isPrimary?: boolean;
   isEnabledArrow?: boolean;
+  isSmallButton?: boolean;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -18,13 +19,14 @@ const Button: React.FC<ButtonProps> = ({
   isPrimary = true,
   disabled = false,
   isEnabledArrow = false,
+  isSmallButton = false,
   className = "",
 }) => {
   const baseStyle = "rounded font-bold focus:outline-none";
 
   const buttonStyle: React.CSSProperties = {
     position: "relative",
-    padding: 20,
+    padding: isSmallButton ? 10 : 20,
     display: "inline-block",
     textTransform: "uppercase",
     fontWeight: "600",
@@ -49,7 +51,7 @@ const Button: React.FC<ButtonProps> = ({
     justifyContent: "space-between",
     alignItems: "center",
     backgroundColor: "#1e1e1e",
-    padding: 20,
+    padding: isSmallButton ? 10 : 20,
     color: "#fafafa",
     opacity: 1,
     transform: "rotateX(0)",
@@ -61,7 +63,7 @@ const Button: React.FC<ButtonProps> = ({
     content: "attr(data-back)",
     position: "absolute",
     top: "0",
-    padding: 20,
+    padding: isSmallButton ? 10 : 20,
     left: "0",
     width: "100%",
     justifyContent: "space-between",

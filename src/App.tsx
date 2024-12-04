@@ -88,7 +88,7 @@ const App: React.FC = () => {
                 }
               />
               <Route
-                path="/:id"
+                path="/works/:id"
                 element={
                   <PageWrapper>
                     <WorkDetails />
@@ -97,7 +97,7 @@ const App: React.FC = () => {
               />
             </Routes>
           </AnimatePresence>
-          <Footer />
+          <Footer setIsHovered={setIsHovered} />
         </div>
       )}
     </div>
