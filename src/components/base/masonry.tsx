@@ -6,9 +6,11 @@ import { WorksData } from "../../helper/const";
 
 interface Props {
   scrollRotation: number;
+  onMouseEnter: React.MouseEventHandler<HTMLParagraphElement>;
+  onMouseLeave: React.MouseEventHandler<HTMLParagraphElement>;
 }
 
-const MasonryGrid = ({ scrollRotation }: Props) => {
+const MasonryGrid = ({ scrollRotation, onMouseEnter, onMouseLeave }: Props) => {
   const parallaxStartPoint = 910;
   const parallaxEndPoint = 1770;
 
@@ -43,7 +45,9 @@ const MasonryGrid = ({ scrollRotation }: Props) => {
           transition={{ type: "spring", stiffness: 30 }}
         >
           {column.map((image) => (
-            <div
+            <motion.div
+              onMouseEnter={onMouseEnter}
+              onMouseLeave={onMouseLeave}
               key={image.id}
               className="relative overflow-hidden rounded-lg group"
             >
@@ -55,19 +59,19 @@ const MasonryGrid = ({ scrollRotation }: Props) => {
               />
 
               <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 group-hover:transition-all duration-300 flex items-center justify-center">
-                <div className="absolute -mt-10 text-white text-xl transform translate-x-[-100%] group-hover:translate-x-0 group-hover:transition-all duration-300">
+                <Paragraph className="absolute text-[#FAFAFA] top-4 transform -translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                  Social Media
+                </Paragraph>
+
+                <Paragraph size="xxl" className="text-[#FAFAFA] font-neue-corp-bold transform translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
                   {image.name}
-                </div>
-                <div className="absolute -mb-10 transform translate-x-[100%] group-hover:translate-x-0 group-hover:transition-all duration-300">
-                  <Button
-                    text={"See Detail"}
-                    size="small"
-                    className="w-44 font-neue-corp-thin mt-2 lg:mt-4 px-3 lg:py-2 text-[12px] lg:text-lg py-1.5"
-                    isEnabledArrow
-                  />
-                </div>
+                </Paragraph>
+
+                <Paragraph className="absolute text-[#FAFAFA] bottom-4 transform translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                  2022
+                </Paragraph>
               </div>
-            </div>
+            </motion.div>
           ))}
           {columnIndex === columns.length - 1 && (
             <div>

@@ -83,7 +83,12 @@ const App: React.FC = () => {
                 path="/works"
                 element={
                   <PageWrapper>
-                    <Works scale={scale} scrollRotation={scrollRotation} />
+                    <Works
+                      onMouseEnter={() => setIsHovered(true)}
+                      onMouseLeave={() => setIsHovered(false)}
+                      scale={scale}
+                      scrollRotation={scrollRotation}
+                    />
                   </PageWrapper>
                 }
               />

@@ -107,7 +107,11 @@ const Works = ({
           exit={{ opacity: 0, x: 50 }}
           transition={{ duration: 0.5, ease: "easeInOut" }}
         >
-          <WorksCard data={filteredWorksData} />
+          <WorksCard
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
+            data={filteredWorksData}
+          />
         </motion.div>
       </div>
       <Contact isScrollable={false} scrollRotation={scrollRotation} />

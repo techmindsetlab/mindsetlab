@@ -5,9 +5,11 @@ import { useNavigate } from "react-router-dom";
 
 interface Props {
   data: WorksDataProps[];
+  onMouseEnter?: React.MouseEventHandler<HTMLParagraphElement>;
+  onMouseLeave?: React.MouseEventHandler<HTMLParagraphElement>;
 }
 
-const WorksCard = ({ data }: Props) => {
+const WorksCard = ({ data, onMouseEnter, onMouseLeave }: Props) => {
   const navigate = useNavigate();
   const [visibleIndex, setVisibleIndex] = useState(0);
 
@@ -34,6 +36,23 @@ const WorksCard = ({ data }: Props) => {
         return (
           <div
             key={index}
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
+            onClick={() =>
+              navigate(
+                `/works/${item.title.replace(/\s+/g, "-").toLowerCase()}`,
+                {
+                  state: {
+                    title: item.title,
+                    tagging: item.tagging,
+                    imageUrl: item.imageUrl,
+                    listWorks: item.listWorks,
+                    description: item.description,
+                    socmedImg: item.socmedImg,
+                  },
+                }
+              )
+            }
             className={`sticky flex-col lg:gap-12 lg:border border-t border-b -mt-12 lg:rounded-[15px] lg:px-8 lg:pb-0 pb-16 lg:pt-0 pt-4 bg-[#1e1e1e] flex h-[60vh] items-center justify-center group transition-all duration-500 ease-in-out ${
               isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
             }`}
@@ -44,14 +63,14 @@ const WorksCard = ({ data }: Props) => {
           >
             {/* DESKTOP VERSION */}
             <div
-              className="w-full absolute h-full rounded-lg border lg:block hidden transition-all duration-700 ease-in-out opacity-0 group-hover:opacity-100 group-hover:scale-100 group-hover:blur-0 scale-95 blur-sm"
+              className="w-full absolute h-full rounded-[15px] lg:block hidden transition-all duration-700 ease-in-out opacity-0 group-hover:opacity-100 group-hover:scale-100 group-hover:blur-0 scale-95 blur-sm"
               style={{
                 backgroundImage: `url(${item.imageUrl})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
               }}
             >
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black opacity-60 rounded-lg transition-opacity duration-700 group-hover:opacity-50"></div>
+              <div className="absolute inset-0 bg-[#1e1e1e] opacity-80 rounded-[15px] transition-opacity duration-700 group-hover:opacity-80"></div>
             </div>
 
             {/* MOBILE VERSION */}
@@ -72,7 +91,7 @@ const WorksCard = ({ data }: Props) => {
               </p>
             </div>
 
-            <div className="w-full flex justify-start">
+            <div className="w-full lg:hidden flex justify-start">
               <Button
                 onClick={() =>
                   navigate(

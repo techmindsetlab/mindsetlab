@@ -9,12 +9,22 @@ function Carousel({ images }: Props) {
     dots: false,
     infinite: true,
     slidesToShow: 3,
+    arrows: false,
     slidesToScroll: 1,
     autoplay: true,
     speed: 3000,
     autoplaySpeed: 3000,
     cssEase: "linear",
     pauseOnHover: true,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
   return (
