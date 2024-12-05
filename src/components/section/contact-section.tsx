@@ -3,13 +3,14 @@ import Button from "../base/button";
 import Paragraph from "../base/paragraph";
 import Title from "../base/title";
 import { motion } from "framer-motion";
-import ContactSVG from "../../animation/contact-hover-masking";
+import ContactSVG from "../../animation/contact-header";
 
 interface Props {
   scrollRotation: number;
+  isScrollable?: boolean;
 }
 
-const Contact = ({ scrollRotation }: Props) => {
+const Contact = ({ scrollRotation, isScrollable = true }: Props) => {
   const [isDesktop, setIsDesktop] = useState(false);
 
   useEffect(() => {
@@ -43,17 +44,23 @@ const Contact = ({ scrollRotation }: Props) => {
   return (
     <div className="bg-[#FAFAFA]  lg:px-14 lg:space-y-6 lg:py-12 p-5">
       <div className="overflow-hidden relative">
-        <motion.div
-          className="w-full h-full"
-          style={{
-            transform: `${
-              isDesktop ? `translateX(${getImagePosition()})` : "none"
-            } `,
-            transition: "transform 0.1s ease-out",
-          }}
-        >
-          <ContactSVG />
-        </motion.div>
+        {isScrollable ? (
+          <motion.div
+            className="w-full h-full"
+            style={{
+              transform: `${
+                isDesktop ? `translateX(${getImagePosition()})` : "none"
+              } `,
+              transition: "transform 0.1s ease-out",
+            }}
+          >
+            <ContactSVG />
+          </motion.div>
+        ) : (
+          <motion.div className="w-full h-full">
+            <ContactSVG />
+          </motion.div>
+        )}
       </div>
 
       {/* DIVIDER */}

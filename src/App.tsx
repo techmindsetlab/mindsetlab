@@ -83,12 +83,17 @@ const App: React.FC = () => {
                 path="/works"
                 element={
                   <PageWrapper>
-                    <Works scale={scale} scrollRotation={scrollRotation} />
+                    <Works
+                      onMouseEnter={() => setIsHovered(true)}
+                      onMouseLeave={() => setIsHovered(false)}
+                      scale={scale}
+                      scrollRotation={scrollRotation}
+                    />
                   </PageWrapper>
                 }
               />
               <Route
-                path="/:id"
+                path="/works/:id"
                 element={
                   <PageWrapper>
                     <WorkDetails />
@@ -97,7 +102,7 @@ const App: React.FC = () => {
               />
             </Routes>
           </AnimatePresence>
-          <Footer />
+          <Footer setIsHovered={setIsHovered} />
         </div>
       )}
     </div>

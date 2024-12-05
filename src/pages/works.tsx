@@ -6,6 +6,7 @@ import Paragraph from "../components/base/paragraph";
 import WorksCard from "../components/section/all-works";
 import { worksCategory, allWorksData } from "../helper/const";
 import { motion } from "motion/react";
+import Contact from "../components/section/contact-section";
 
 interface Props {
   onMouseEnter?: React.MouseEventHandler<HTMLParagraphElement>;
@@ -35,14 +36,14 @@ const Works = ({
     <div className="max-w-full mx-auto">
       <BottomAnimation
         wrapperStyle="mt-[6rem] lg:mt-[8rem]"
-        motionStyle="flex justify-center items-center"
+        motionStyle="flex justify-between lg:-ml-2 mx-4 lg:px-0 lg:justify-center"
       >
         <img
           onMouseEnter={onMouseEnter}
           onMouseLeave={onMouseLeave}
           src="/work_header_1.svg"
           alt="Mindsetlab Creative Logo Header"
-          className="h-full w-[50%] transition-transform duration-100"
+          className="h-full lg:w-[50%] transition-transform duration-100"
           style={{
             transform: `translateX(${-((scale - 1) * 20)}%)`,
           }}
@@ -52,7 +53,7 @@ const Works = ({
           onMouseLeave={onMouseLeave}
           src="/work_header_2.svg"
           alt="Mindsetlab Creative Logo Header"
-          className="h-full w-[20.8%] -ml-12 -mr-4 transition-transform duration-100"
+          className="h-full w-[20.8%] -ml-4 lg:-ml-12 -mr-4 transition-transform duration-100"
           style={{
             transform: `scaleX(${scale})`,
           }}
@@ -62,7 +63,7 @@ const Works = ({
           onMouseLeave={onMouseLeave}
           src="/work_header_3.svg"
           alt="Mindsetlab Creative Logo Header"
-          className="h-full w-[27.3%] -mt-[1px] transition-transform duration-100"
+          className="h-full w-[27.3%] mr-9 lg:mr-0 transition-transform duration-100"
           style={{
             transform: `translateX(${(scale - 1) * 30}%)`,
           }}
@@ -100,14 +101,20 @@ const Works = ({
         </div>
         <motion.div
           key={selectedCategory}
+          className="mb-24"
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: 50 }}
           transition={{ duration: 0.5, ease: "easeInOut" }}
         >
-          <WorksCard data={filteredWorksData} />
+          <WorksCard
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
+            data={filteredWorksData}
+          />
         </motion.div>
       </div>
+      <Contact isScrollable={false} scrollRotation={scrollRotation} />
     </div>
   );
 };

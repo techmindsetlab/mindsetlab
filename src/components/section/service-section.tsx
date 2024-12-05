@@ -3,7 +3,7 @@ import Button from "../base/button";
 import Paragraph from "../base/paragraph";
 import Title from "../base/title";
 import { motion } from "framer-motion";
-import ServiceSVG from "../../animation/service-hover-masking";
+import ServiceSVG from "../../animation/service-header";
 
 interface Props {
   scrollRotation: number;

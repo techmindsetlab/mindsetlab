@@ -22,7 +22,11 @@ const Home = ({ setIsHovered, scrollRotation, scale }: Props) => {
           scale={scale}
         />
         <Divider scrollRotation={scrollRotation} />
-        <Works scrollRotation={scrollRotation} />
+        <Works
+          scrollRotation={scrollRotation}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        />
       </div>
       <div className="mt-6">
         <About />

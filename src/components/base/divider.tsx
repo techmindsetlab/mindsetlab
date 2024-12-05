@@ -1,15 +1,21 @@
 import Paragraph from "./paragraph";
 
 interface Props {
-  scrollRotation: number;
+  scrollRotation?: number;
   isHasText?: boolean;
   text?: string;
+  textWidth?: string;
 }
 
-const Divider = ({ scrollRotation, isHasText = false, text }: Props) => {
+const Divider = ({
+  scrollRotation,
+  isHasText = false,
+  text,
+  textWidth,
+}: Props) => {
   return (
     <div className="flex items-center my-4 lg:my-8">
-      <div className="relative lg:h-[4rem] lg:w-[4rem] h-[2rem] w-[2rem] mr-2 flex items-center justify-center">
+      <div className="relative lg:h-[3.5rem] lg:w-[3.5rem] h-[2rem] w-[2rem] mr-2 flex items-center justify-center">
         <img
           src="/mindsetlab_logo.svg"
           alt="Mindsetlab Logo"
@@ -19,15 +25,19 @@ const Divider = ({ scrollRotation, isHasText = false, text }: Props) => {
         <img
           src="/outer_octagon.svg"
           alt="Outer Octagon Logo"
-          className="absolute h-full w-full"
+          className="absolute h-[80%] w-[80%]"
           style={{
-            transform: `rotate(${scrollRotation * 0.4}deg)`,
+            transform: scrollRotation
+              ? `rotate(${scrollRotation * 0.4}deg)`
+              : "",
           }}
         />
       </div>
       <div className="border h-fit w-full" />
       {isHasText && (
-        <Paragraph className="text-[12px] font-neue-corp-thin text-[#fafafa] w-fit ml-2">
+        <Paragraph
+          className={`${textWidth} text-[12px] font-neue-corp-thin text-[#fafafa] w-fit ml-2`}
+        >
           {text}
         </Paragraph>
       )}

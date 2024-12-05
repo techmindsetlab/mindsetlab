@@ -11,6 +11,9 @@ export interface WorksDataProps {
     title: string;
     tagging: string;
     imageUrl: string;
+    listWorks: string[];
+    description: string;
+    socmedImg: string[];
 }
 
 export const works: WorksData[] = [
@@ -149,21 +152,43 @@ export const allWorksData: WorksDataProps[] = [
         title: "FOOT LOCKER SOCIAL MEDIA",
         tagging: "Social Media",
         imageUrl: "https://www.stockvault.net/data/2012/10/29/137060/preview16.jpg",
+        listWorks: [
+            "Social Media", "Campaign"
+        ],
+        description: "Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
+        socmedImg: [
+            "https://www.stockvault.net/data/2014/10/06/163147/preview16.jpg", "https://www.stockvault.net/data/2014/10/06/163147/preview16.jpg", "https://www.stockvault.net/data/2014/10/06/163147/preview16.jpg", "https://www.stockvault.net/data/2014/10/06/163147/preview16.jpg", "https://www.stockvault.net/data/2014/10/06/163147/preview16.jpg", "https://www.stockvault.net/data/2014/10/06/163147/preview16.jpg",
+        ]
     },
     {
         title: "FOOT LOCKER SOCIAL MEDIA",
         tagging: "Campaign",
         imageUrl: "https://www.stockvault.net/data/2014/10/06/163147/preview16.jpg",
+        listWorks: [
+            "Social Media", "Campaign"
+        ],
+        description: "Lorem ipsum dolor sit amet",
+        socmedImg: []
     },
     {
         title: "FOOT LOCKER SOCIAL MEDIA",
         tagging: "Website Development",
         imageUrl: "https://www.stockvault.net/data/2016/03/14/187739/preview16.jpg",
+        listWorks: [
+            "Social Media", "Campaign"
+        ],
+        description: "Lorem ipsum dolor sit amet",
+        socmedImg: []
     },
     {
         title: "FOOT LOCKER SOCIAL MEDIA",
         tagging: "VR Website",
         imageUrl: "https://www.stockvault.net/data/2016/03/14/187732/preview16.jpg",
+        listWorks: [
+            "Social Media", "Campaign"
+        ],
+        description: "Lorem ipsum dolor sit amet",
+        socmedImg: []
     },
 ];
 
@@ -175,3 +200,36 @@ export const navigation = [
 ];
 
 export const worksCategory = ["All Works", "Social Media", "Campaign", "Website Development", "VR Website"]
+
+export const footerNav = [
+    {
+        navigation: "WORK",
+        subnavigation: [
+            { name: "Production Campaign", href: "" },
+            { name: "Social Media", href: "" },
+            { name: "Company Profile", href: "" },
+            { name: "Virtual Website", href: "" },
+        ],
+    },
+    {
+        navigation: "SERVICE",
+        subnavigation: [
+            { name: "Our Service", href: "" },
+            { name: "Speciality", href: "" },
+        ],
+    },
+    {
+        navigation: "ABOUT",
+        subnavigation: [
+            { name: "Stories & Culture", href: "" },
+            { name: "The Teams", href: "" },
+        ],
+    },
+    {
+        navigation: "CONTACT",
+        subnavigation: [
+            { name: "(Email)", href: "" },
+            { name: "(Whatsapp)", href: "" },
+        ],
+    },
+];
