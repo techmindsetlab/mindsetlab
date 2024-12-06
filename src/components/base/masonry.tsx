@@ -3,6 +3,7 @@ import Button from "./button";
 import Paragraph from "./paragraph";
 import { works } from "../../helper/const";
 import { WorksData } from "../../helper/const";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
   scrollRotation: number;
@@ -11,6 +12,11 @@ interface Props {
 }
 
 const MasonryGrid = ({ scrollRotation, onMouseEnter, onMouseLeave }: Props) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/works");
+  };
   const parallaxStartPoint = 910;
   const parallaxEndPoint = 1770;
 
@@ -38,7 +44,9 @@ const MasonryGrid = ({ scrollRotation, onMouseEnter, onMouseLeave }: Props) => {
       {columns.map((column, columnIndex) => (
         <motion.div
           key={columnIndex}
-          className="grid h-fit gap-4"
+          className={`${
+            columnIndex === 2 && "-mt-14 lg:mt-0"
+          } grid h-fit gap-4`}
           style={{
             transform: calculateParallax(scrollRotation, columnIndex),
           }}
@@ -58,16 +66,19 @@ const MasonryGrid = ({ scrollRotation, onMouseEnter, onMouseLeave }: Props) => {
                 style={{ aspectRatio: `${image.width} / ${image.height}` }}
               />
 
-              <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 group-hover:transition-all duration-300 flex items-center justify-center">
-                <Paragraph className="absolute text-[#FAFAFA] top-4 transform -translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+              <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 group-hover:transition-all duration-800 flex items-center justify-center">
+                <Paragraph className="absolute text-[#FAFAFA] top-4 transform -translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-1000">
                   Social Media
                 </Paragraph>
 
-                <Paragraph size="xxl" className="text-[#FAFAFA] font-neue-corp-bold transform translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                <Paragraph
+                  size="xxl"
+                  className="text-[#FAFAFA] font-neue-corp-bold transform translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-700"
+                >
                   {image.name}
                 </Paragraph>
 
-                <Paragraph className="absolute text-[#FAFAFA] bottom-4 transform translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                <Paragraph className="absolute text-[#FAFAFA] bottom-4 transform translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-1000">
                   2022
                 </Paragraph>
               </div>
@@ -76,11 +87,13 @@ const MasonryGrid = ({ scrollRotation, onMouseEnter, onMouseLeave }: Props) => {
           {columnIndex === columns.length - 1 && (
             <div>
               <Paragraph
-                className="text-[#FAFAFA] lg:text-base lg:leading-6 text-[12px] leading-5"
-                text="Nah ini penjelasan tambahannya call to action yang mengajak audiens yang mengunjungi website mengarah ke ‘All Works’"
+                size="sm"
+                className="text-[#FAFAFA] lg:text-base lg:leading-6 text-sm leading-4"
+                text="Peep what we’re serving. Viral moments, bold strategies, and straight-up fire—no cap, all caught in 4K."
               />
               <Button
-                text={"See All Works"}
+                text={"The Tea"}
+                onClick={handleClick}
                 size="small"
                 className="w-36 lg:w-64 font-neue-corp-thin mt-2 lg:mt-4 px-3 lg:py-2 text-[12px] lg:text-lg py-1.5"
                 isEnabledArrow

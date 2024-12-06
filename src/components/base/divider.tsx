@@ -15,7 +15,7 @@ const Divider = ({
 }: Props) => {
   return (
     <div className="flex items-center my-4 lg:my-8">
-      <div className="relative lg:h-[3.5rem] lg:w-[3.5rem] h-[2rem] w-[2rem] mr-2 flex items-center justify-center">
+      <div className="relative lg:h-[3.5rem] -ml-1 lg:w-[3.5rem] h-[3rem] w-[3rem] mr-2 flex items-center justify-center">
         <img
           src="/mindsetlab_logo.svg"
           alt="Mindsetlab Logo"

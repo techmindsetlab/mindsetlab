@@ -28,7 +28,6 @@ const Button: React.FC<ButtonProps> = ({
     position: "relative",
     padding: isSmallButton ? 10 : 20,
     display: "inline-block",
-    textTransform: "uppercase",
     fontWeight: "600",
     borderRadius: "5px",
     cursor: "none",

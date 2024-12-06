@@ -8,9 +8,14 @@ import ContactSVG from "../../animation/contact-header";
 interface Props {
   scrollRotation: number;
   isScrollable?: boolean;
+  typography: string;
 }
 
-const Contact = ({ scrollRotation, isScrollable = true }: Props) => {
+const Contact = ({
+  scrollRotation,
+  isScrollable = true,
+  typography,
+}: Props) => {
   const [isDesktop, setIsDesktop] = useState(false);
 
   useEffect(() => {
@@ -42,7 +47,7 @@ const Contact = ({ scrollRotation, isScrollable = true }: Props) => {
     return `${translateValue}%`;
   };
   return (
-    <div className="bg-[#FAFAFA]  lg:px-14 lg:space-y-6 lg:py-12 p-5">
+    <div className="bg-[#FAFAFA] lg:px-12 lg:space-y-6 lg:py-12 p-5">
       <div className="overflow-hidden relative">
         {isScrollable ? (
           <motion.div
@@ -73,13 +78,12 @@ const Contact = ({ scrollRotation, isScrollable = true }: Props) => {
       </div>
 
       <Title
-        text="Buatkan copy pertanyaan kebutuhan client?"
-        headerSize="xl"
-        className="text-[#1e1e1e] lg:text-3xl w-[80%]"
+        text={typography}
+        className="text-[#1e1e1e] lg:text-3xl text-2xl w-[80%]"
       />
 
       <Button
-        text={"Contact Us"}
+        text={"In Case You Missed It"}
         size="small"
         className="w-44 lg:w-64 font-neue-corp-thin mt-4 px-3 lg:py-2 lg:text-lg py-1.5"
         isEnabledArrow

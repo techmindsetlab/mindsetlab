@@ -4,10 +4,11 @@ import AnimatedLink from "../base/link";
 import Paragraph from "../base/paragraph";
 
 interface Props {
-  setIsHovered: (isHovered: boolean) => void;
+  onMouseEnter?: React.MouseEventHandler<HTMLParagraphElement>;
+  onMouseLeave?: React.MouseEventHandler<HTMLParagraphElement>;
 }
 
-const Footer = ({ setIsHovered }: Props) => {
+const Footer = ({ onMouseEnter, onMouseLeave }: Props) => {
   return (
     <div className="px-5 lg:px-12 pb-1">
       <div className="flex mb-12 justify-between">
@@ -26,9 +27,9 @@ const Footer = ({ setIsHovered }: Props) => {
                 {item.subnavigation.map((item) => (
                   <div className="w-fit" key={item.name}>
                     <AnimatedLink
+                      onMouseEnter={onMouseEnter}
+                      onMouseLeave={onMouseLeave}
                       additionalStyle={`text-xl cursor-none`}
-                      onMouseEnter={() => setIsHovered(true)}
-                      onMouseLeave={() => setIsHovered(false)}
                       key={item.name}
                       name={item.name}
                       to={item.href}
@@ -45,18 +46,10 @@ const Footer = ({ setIsHovered }: Props) => {
             IN YOUR MIND?
           </Paragraph>
           <div className="hidden lg:flex mt-3 justify-start gap-2">
-            <a
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
-              href=""
-            >
+            <a href="">
               <img src="/linkedin_logo.svg" className="w-10 h-10 cursor-none" />
             </a>
-            <a
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
-              href=""
-            >
+            <a href="">
               <img
                 src="/instagram_logo.svg"
                 className="w-10 h-10 cursor-none"
@@ -80,7 +73,7 @@ const Footer = ({ setIsHovered }: Props) => {
       <div className="hidden lg:block">
         <Divider
           isHasText
-          textWidth="w-[11rem]"
+          textWidth="w-[12rem]"
           text="© 2023 — Copyright"
           scrollRotation={undefined}
         />

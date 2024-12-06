@@ -12,10 +12,10 @@ function Carousel({ images }: Props) {
     arrows: false,
     slidesToScroll: 1,
     autoplay: true,
-    speed: 3000,
-    autoplaySpeed: 3000,
+    speed: 5000,
+    autoplaySpeed: 5000,
     cssEase: "linear",
-    pauseOnHover: true,
+    pauseOnHover: false,
     responsive: [
       {
         breakpoint: 1024,
