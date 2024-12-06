@@ -12,11 +12,16 @@ import Footer from "./components/section/footer";
 
 const App: React.FC = () => {
   const [isHovered, setIsHovered] = useState<boolean>(false);
+  const [isLink, setIsLink] = useState<boolean>(false);
   const [loading, setLoading] = useState(true);
   const [scale, setScale] = useState(1);
   const [scrollRotation, setScrollRotation] = useState(0);
 
   const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -63,9 +68,9 @@ const App: React.FC = () => {
         <LoadingScreen />
       ) : (
         <div>
-          <Navbar setIsHovered={setIsHovered} />
-          <Cursor isHovered={isHovered} />
-          <AnimatePresence mode="wait">
+          <Navbar setIsLink={setIsLink} />
+          <Cursor isLink={isLink} isHovered={isHovered} />
+          <AnimatePresence mode="sync">
             <Routes location={location} key={location.pathname}>
               <Route
                 path="/"
@@ -96,13 +101,16 @@ const App: React.FC = () => {
                 path="/works/:id"
                 element={
                   <PageWrapper>
-                    <WorkDetails />
+                    <WorkDetails scrollRotation={scrollRotation} />
                   </PageWrapper>
                 }
               />
             </Routes>
           </AnimatePresence>
-          <Footer setIsHovered={setIsHovered} />
+          <Footer
+            onMouseEnter={() => setIsLink(true)}
+            onMouseLeave={() => setIsLink(false)}
+          />
         </div>
       )}
     </div>

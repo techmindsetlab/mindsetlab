@@ -174,7 +174,7 @@ $speed: 0.5s;
 .title {
   display: block;
   line-height: 20px;
-  transition: transform 0.4s ease;
+  transition: transform 0.8s ease;
 }
 
 .link-title1 {

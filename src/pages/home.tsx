@@ -13,14 +13,9 @@ interface Props {
 
 const Home = ({ setIsHovered, scrollRotation, scale }: Props) => {
   return (
-    <div className="w-screen">
-      <div className="px-5 lg:max-w-[85rem] max-w-full mx-auto">
-        <Header
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-          scrollRotation={scrollRotation}
-          scale={scale}
-        />
+    <div>
+      <div className="lg:px-12 px-5">
+        <Header scrollRotation={scrollRotation} scale={scale} />
         <Divider scrollRotation={scrollRotation} />
         <Works
           scrollRotation={scrollRotation}
@@ -28,10 +23,15 @@ const Home = ({ setIsHovered, scrollRotation, scale }: Props) => {
           onMouseLeave={() => setIsHovered(false)}
         />
       </div>
-      <div className="mt-6">
+      <div>
         <About />
         <Service scrollRotation={scrollRotation} />
-        <Contact scrollRotation={scrollRotation} />
+        <Contact
+          scrollRotation={scrollRotation}
+          typography={
+            "Got an idea that’s fire or just wanna collab on something epic?"
+          }
+        />
       </div>
     </div>
   );
