@@ -1,50 +1,12 @@
-# React + TypeScript + Vite
+# MindsetLab Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![MindsetLab Logo](https://media.licdn.com/dms/image/v2/C4D0BAQFn7aEQETqAlw/company-logo_200_200/company-logo_200_200/0/1639629499975/mindsetlabid_logo?e=2147483647&v=beta&t=y21TihbwC6VNO82YbncHr89ai6Cx-JTmnu9As5gmJQo)
 
-Currently, two official plugins are available:
+This is a Vite + React + TypeScript project for building fast and modern web applications.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## Features
+- **React**: Component-based UI framework
+- **TypeScript**: Static typing for robust development
+- **Vite**: Fast build tool with HMR
+- **React Router DOM**: For routing and navigation
+- **ESLint**: Linting for cleaner code
