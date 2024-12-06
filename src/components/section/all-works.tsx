@@ -82,11 +82,11 @@ const WorksCard = ({ data, onMouseEnter, onMouseLeave }: Props) => {
               />
             </div>
 
-            <div className="w-full z-10 flex justify-between gap-4 py-10">
+            <div className="w-full z-10 flex items-center justify-between gap-4 py-10">
               <h2 className="lg:text-4xl w-[50%] text-2xl font-neue-corp-bold font-bold text-white">
                 {item.title}
               </h2>
-              <p className="lg:text-[12px] text-[10px] h-fit px-4 py-0.5 lg:py-1 text-lg font-neue-corp-thin text-[#FAFAFA] border border-[#FAFAFA] rounded-lg">
+              <p className="lg:text-[12px] text-[8px] h-fit lg:px-4 px-2 py-0.5 lg:py-1 text-lg font-neue-corp-thin text-[#FAFAFA] border border-[#FAFAFA] rounded-lg">
                 {item.tagging}
               </p>
             </div>

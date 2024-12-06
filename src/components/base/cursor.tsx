@@ -1,15 +1,16 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
-import { FaLocationArrow } from "react-icons/fa";
+import { IoIosArrowRoundForward } from "react-icons/io";
 
 interface Props {
   isHovered: boolean;
+  isLink: boolean;
 }
 
-const Cursor = ({ isHovered }: Props) => {
-  const size = isHovered ? 100 : 50;
+const Cursor = ({ isHovered, isLink }: Props) => {
+  const size = isHovered || isLink ? 100 : 50;
   const circle = useRef<HTMLDivElement | null>(null);
-  const arrowRef = useRef<HTMLDivElement | null>(null); 
+  const arrowRef = useRef<HTMLDivElement | null>(null);
   const mouse = useRef({
     x: 0,
     y: 0,
@@ -54,13 +55,13 @@ const Cursor = ({ isHovered }: Props) => {
         {
           opacity: 0,
           x: -50, // Mulai dari kiri
-          y: 50, // Mulai dari bawah
+          y: -50, // Mulai dari atas
         },
         {
           opacity: 1,
           x: 0,
           y: 0, // Pergi ke posisi tengah
-          duration: 0.3,
+          duration: 0.8,
           ease: "power3.out",
         }
       );
@@ -71,11 +72,15 @@ const Cursor = ({ isHovered }: Props) => {
     <>
       <div
         ref={circle}
-        className="fixed top-0 left-0 sm:block hidden z-40 cursor-none bg-[#FAFAFA] mix-blend-difference rounded-full pointer-events-none"
+        className={`fixed top-0 left-0 sm:block hidden z-40 cursor-none bg-[#FAFAFA] ${
+          !isHovered && "mix-blend-difference"
+        } rounded-full pointer-events-none`}
         style={{
           width: size,
           height: size,
           transition: `height 0.3s ease-out, width 0.3s ease-out`,
+          transform: isLink && isHovered ? "scale(1.5)" : "scale(1)",
+          filter: isLink ? "blur(4px)" : "none",
         }}
       >
         {isHovered && (
@@ -84,13 +89,16 @@ const Cursor = ({ isHovered }: Props) => {
             className="absolute text-[#1e1e1e] inset-0 flex items-center justify-center"
             style={{
               opacity: isHovered ? 1 : 0,
-              transition: "opacity 0.3s ease-out",
+              transition: "opacity 0.8s ease-out",
+              mixBlendMode: "normal",
             }}
           >
-            <FaLocationArrow
-              className="text-[#1e1e1e] mix-blend-difference text-3xl"
+            <IoIosArrowRoundForward
+              className="text-[#1e1e1e] text-5xl"
               style={{
-                transition: "transform 0.3s ease-out",
+                transition: "transform 0.8s ease-out",
+                mixBlendMode: "normal",
+                transform: "rotate(45deg)",
               }}
             />
           </div>

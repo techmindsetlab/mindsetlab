@@ -9,10 +9,10 @@ import Paragraph from "../base/paragraph";
 import AnimatedLink from "../base/link";
 
 interface Props {
-  setIsHovered: (isHovered: boolean) => void;
+  setIsLink: (isLink: boolean) => void;
 }
 
-const Navbar = ({ setIsHovered }: Props) => {
+const Navbar = ({ setIsLink }: Props) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const colorBackground = `linear-gradient(90deg, rgba(255, 255, 255, 1) ${scrollProgress}%, #1e1e1e ${scrollProgress}%)`;
@@ -45,8 +45,8 @@ const Navbar = ({ setIsHovered }: Props) => {
         >
           <div className="flex lg:flex-1">
             <Link
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
+              onMouseEnter={() => setIsLink(true)}
+              onMouseLeave={() => setIsLink(false)}
               to="/"
               className="-m-1.5 p-1.5 cursor-none"
             >
@@ -72,9 +72,9 @@ const Navbar = ({ setIsHovered }: Props) => {
           <div className="hidden lg:flex lg:gap-x-12">
             {navigation.map((item) => (
               <AnimatedLink
+                onMouseEnter={() => setIsLink(true)}
+                onMouseLeave={() => setIsLink(false)}
                 additionalStyle={`uppercase cursor-none`}
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
                 key={item.name}
                 name={item.name}
                 to={item.href}
@@ -93,7 +93,7 @@ const Navbar = ({ setIsHovered }: Props) => {
         <div className="fixed inset-0 z-10" />
         <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-[#1e1e1e] border-[#FAFAFA] px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-[#FAFAFA]/10">
           <div className="flex items-center justify-between">
-            <a href="#" className="-m-1.5 p-1.5">
+            <a href="/" className="-m-1.5 p-1.5">
               <span className="sr-only">Mindsetlab Creative</span>
               <img alt="" src="/mindsetlab_logo.svg" className="h-8 w-auto" />
             </a>
@@ -112,6 +112,7 @@ const Navbar = ({ setIsHovered }: Props) => {
                   <Link
                     key={item.name}
                     to={item.href}
+                    onClick={() => setMobileMenuOpen(false)}
                     className="-mx-3 gap-2 flex items-center rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-gray-800"
                   >
                     <Paragraph>{item.name}</Paragraph>

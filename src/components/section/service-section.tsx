@@ -35,7 +35,7 @@ const Service = ({ scrollRotation }: Props) => {
   };
 
   return (
-    <div className="bg-[#1E1E1E] lg:py-12 lg:px-14 p-5">
+    <div className="bg-[#1E1E1E] lg:py-12 lg:px-12 p-5">
       <motion.div
         className="w-full h-full"
         style={{
@@ -60,14 +60,13 @@ const Service = ({ scrollRotation }: Props) => {
       <div className="w-[70%]">
         <Title
           className="text-[#fafafa] lg:text-3xl leading-6 text-[20px]"
-          text={"Tolong diganti dengan copy tentang Mindsetlab"}
+          text={"You haven’t been the main character? "}
         />
         <Paragraph
           size="mini"
           className="font-neue-corp-thin mt-2 lg:text-xl text-[#fafafa]"
         >
-          Nah ini penjelasan tambahannya tentang headline diatas yaa, Nah ini
-          penjelasan tambahannya tentang headline diatas yaa
+          We’ll help you bring out your 100 and left no crumbs. Say less!
         </Paragraph>
       </div>
 

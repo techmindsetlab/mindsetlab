@@ -34,11 +34,11 @@ const Dropdown: React.FC<DropdownProps> = ({
       </button>
 
       <motion.div
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: isOpen ? 1 : 0, x: isOpen ? 0 : -20 }}
-        exit={{ opacity: 0, x: -20 }}
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: isOpen ? 1 : 0, y: isOpen ? 0 : -20 }}
+        exit={{ opacity: 0, y: -20 }}
         transition={{ duration: 0.3 }}
-        className="absolute top-10 left-0 bg-[#333333] text-white rounded-md w-48 shadow-lg"
+        className="absolute top-10 left-4 bg-[#333333] text-white rounded-md w-48 shadow-lg"
         style={{ zIndex: 10 }}
       >
         {isOpen && (
