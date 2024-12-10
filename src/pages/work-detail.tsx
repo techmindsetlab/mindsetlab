@@ -4,6 +4,7 @@ import Carousel from "../components/section/carousel";
 import Slider from "react-slick";
 import Contact from "../components/section/contact-section";
 import WorkDetailDivider from "../components/base/work-detail-divider";
+import Highlight from "../components/section/highlight";
 
 interface Props {
   scrollRotation: number;
@@ -180,7 +181,19 @@ const WorkDetails = ({ scrollRotation }: Props) => {
         <Carousel images={socmedImg} />
       </div>
 
-      <div className="px-5 relative border-t border-[#FAFAFA] mt-8"></div>
+      {/* HIGHLIGHT SECTION */}
+      <div className="px-5 lg:px-0 lg:pt-8">
+        {/* DIVIDER */}
+        <div className="lg:hidden h-[0.5px] bg-[#FFFFFF] my-8" />
+        {/* CONTENT */}
+        <Highlight
+          campaignName='"Nama Campaign"'
+          campaignText="Nah ini untuk penjelasan project atau campaign yang dilakuin, Nah ini untuk penjelasan project atau campaign yang dilakuin, Nah ini untuk penjelasan project atau campaign yang dilakuin"
+        />
+      </div>
+      {/* HIGHLIGHT SECTION ENDS */}
+
+      <div className="px-5 relative border-t border-[#FAFAFA]"></div>
       <Contact
         isScrollable={false}
         scrollRotation={scrollRotation}

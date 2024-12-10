@@ -6,7 +6,7 @@ export const workDetail = [
                 "documentId": "ch2ch34f4l717972idz8ga69",
                 "title": "Foot Locker Social Media 2024",
                 "createdAt": "2024-12-05T10:37:39.401Z",
-                "updatedAt": "2024-12-06T07:57:11.431Z",
+                "updatedAt": "2024-12-09T08:12:39.911Z",
                 "publishedAt": null,
                 "slug": "foot-locker-social-media-2024",
                 "projectURL": "https://google.com",
@@ -14,12 +14,25 @@ export const workDetail = [
                 "tagline": "Nama campaign atau tagline si project.",
                 "category": "Social Media",
                 "date": "2024-12-01",
-                "scopeOfWork": "Daily content Campaign ads",
                 "explanationTitle": "“Daily Content”",
                 "explanationDescription": "When it comes to Foot Locker Indonesia’s social media, we don’t just post—we vibe. From drip-checks that stop the scroll to stories that hit every sneakerhead right in the feels, we’re all about delivering daily content that slays. Think bold visuals, trending moments, and captions that speak straight to the culture.\nAt Mindset Lab, we get it—sneakers aren’t just shoes; they’re a lifestyle. That’s why every post is designed to keep the community hyped and the feed fresh. Wanna see how we bring the heat every day? Click in and peep the magic.",
                 "campaignTitle": "“Nama Campaign”",
                 "campaignText": "Nah ini untuk penjelasan project atau campaign yang dilakuin, Nah ini untuk penjelasan project atau campaign yang dilakuin, Nah ini untuk penjelasan project atau campaign yang dilakuin",
                 "campaignDescription": "Nah ini untuk penjelasan project \natau campaign yang dilakuin, kayak objectivenya secara keseluruhan project. ",
+                "scopeOfWorks": [
+                    {
+                        "id": 1,
+                        "scopeOfWork": "DAILY CONTENT"
+                    },
+                    {
+                        "id": 2,
+                        "scopeOfWork": "CAMPAIGN"
+                    },
+                    {
+                        "id": 3,
+                        "scopeOfWork": "ADS"
+                    }
+                ],
                 "banner": {
                     "data": {
                         "id": 9,
