@@ -74,7 +74,7 @@ const App: React.FC = () => {
           <Navbar setIsLink={setIsLink} />
           <Cursor isLink={isLink} isHovered={isHovered} />
           <AnimatePresence mode="sync">
-            <Routes location={location} key={location.pathname}>
+            <Routes location={location} key={location.key}>
               <Route
                 path="/"
                 element={
