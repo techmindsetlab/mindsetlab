@@ -4,21 +4,24 @@ import Divider from "../components/base/divider";
 import Dropdown from "../components/base/dropdown";
 import Paragraph from "../components/base/paragraph";
 import WorksCard from "../components/section/all-works";
-import { worksCategory, allWorksData } from "../helper/const";
+import { worksCategory } from "../helper/const";
 import { motion } from "motion/react";
 import Contact from "../components/section/contact-section";
+import { WorksType } from "../types/types";
 
 interface Props {
   onMouseEnter?: React.MouseEventHandler<HTMLParagraphElement>;
   onMouseLeave?: React.MouseEventHandler<HTMLParagraphElement>;
   scale: number;
   scrollRotation: number;
+  data: WorksType[];
 }
 
 const Works = ({
   onMouseLeave,
   onMouseEnter,
   scale,
+  data,
   scrollRotation,
 }: Props) => {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
@@ -29,8 +32,8 @@ const Works = ({
 
   const filteredWorksData =
     selectedCategory && selectedCategory !== "All Works"
-      ? allWorksData.filter((item) => item.tagging === selectedCategory)
-      : allWorksData;
+      ? data.filter((item) => item.category === selectedCategory)
+      : data;
 
   return (
     <div className="max-w-full mx-auto">

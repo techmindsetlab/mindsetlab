@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import Button from "../base/button";
-import { WorksDataProps } from "../../helper/const";
 import { useNavigate } from "react-router-dom";
+import { WorksType } from "../../types/types";
 
 interface Props {
-  data: WorksDataProps[];
+  data: WorksType[];
   onMouseEnter?: React.MouseEventHandler<HTMLParagraphElement>;
   onMouseLeave?: React.MouseEventHandler<HTMLParagraphElement>;
 }
@@ -12,6 +12,10 @@ interface Props {
 const WorksCard = ({ data, onMouseEnter, onMouseLeave }: Props) => {
   const navigate = useNavigate();
   const [visibleIndex, setVisibleIndex] = useState(0);
+
+  const handleDetailWorks = (slug: string, item: WorksType) => {
+    navigate(`/works/${slug}`, { state: { workData: item } });
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,21 +42,7 @@ const WorksCard = ({ data, onMouseEnter, onMouseLeave }: Props) => {
             key={index}
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
-            onClick={() =>
-              navigate(
-                `/works/${item.title.replace(/\s+/g, "-").toLowerCase()}`,
-                {
-                  state: {
-                    title: item.title,
-                    tagging: item.tagging,
-                    imageUrl: item.imageUrl,
-                    listWorks: item.listWorks,
-                    description: item.description,
-                    socmedImg: item.socmedImg,
-                  },
-                }
-              )
-            }
+            onClick={() => handleDetailWorks(item.slug, item)}
             className={`sticky flex-col lg:gap-12 lg:border border-t border-b -mt-12 lg:rounded-[15px] lg:px-8 lg:pb-0 pb-16 lg:pt-0 pt-4 bg-[#1e1e1e] flex h-[60vh] items-center justify-center group transition-all duration-500 ease-in-out ${
               isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
             }`}
@@ -65,7 +55,7 @@ const WorksCard = ({ data, onMouseEnter, onMouseLeave }: Props) => {
             <div
               className="w-full absolute h-full rounded-[15px] lg:block hidden transition-all duration-700 ease-in-out opacity-0 group-hover:opacity-100 group-hover:scale-100 group-hover:blur-0 scale-95 blur-sm"
               style={{
-                backgroundImage: `url(${item.imageUrl})`,
+                backgroundImage: `url(${item.banner.url})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
               }}
@@ -76,7 +66,7 @@ const WorksCard = ({ data, onMouseEnter, onMouseLeave }: Props) => {
             {/* MOBILE VERSION */}
             <div className="w-full h-[26vh] rounded-lg border lg:hidden">
               <img
-                src={item.imageUrl}
+                src={item.banner.url}
                 className="w-full h-full rounded-lg object-cover"
                 alt={item.title}
               />
@@ -87,29 +77,15 @@ const WorksCard = ({ data, onMouseEnter, onMouseLeave }: Props) => {
                 {item.title}
               </h2>
               <p className="lg:text-[12px] text-[8px] h-fit lg:px-4 px-2 py-0.5 lg:py-1 text-lg font-neue-corp-thin text-[#FAFAFA] border border-[#FAFAFA] rounded-lg">
-                {item.tagging}
+                {item.category}
               </p>
             </div>
 
             <div className="w-full lg:hidden flex justify-start">
               <Button
-                onClick={() =>
-                  navigate(
-                    `/works/${item.title.replace(/\s+/g, "-").toLowerCase()}`,
-                    {
-                      state: {
-                        title: item.title,
-                        tagging: item.tagging,
-                        imageUrl: item.imageUrl,
-                        listWorks: item.listWorks,
-                        description: item.description,
-                        socmedImg: item.socmedImg,
-                      },
-                    }
-                  )
-                }
                 text={"Detail Work"}
                 size="small"
+                onClick={() => handleDetailWorks(item.slug, item)}
                 isPrimary={false}
                 className="w-44 text-[12px] lg:w-64 font-neue-corp-thin mt-4 px-3 lg:py-2 lg:text-lg py-1.5"
                 isEnabledArrow

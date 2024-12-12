@@ -9,6 +9,8 @@ import Cursor from "./components/base/cursor";
 import LoadingScreen from "./components/section/loading-screen";
 import PageWrapper from "./components/base/page-wrapper";
 import Footer from "./components/section/footer";
+import { works } from "./@data/works";
+import { workDetail } from "./@data/work-detail";
 
 const App: React.FC = () => {
   const [isHovered, setIsHovered] = useState<boolean>(false);
@@ -80,6 +82,7 @@ const App: React.FC = () => {
                       setIsHovered={setIsHovered}
                       scrollRotation={scrollRotation}
                       scale={scale}
+                      data={works.data}
                     />
                   </PageWrapper>
                 }
@@ -93,6 +96,7 @@ const App: React.FC = () => {
                       onMouseLeave={() => setIsHovered(false)}
                       scale={scale}
                       scrollRotation={scrollRotation}
+                      data={works.data}
                     />
                   </PageWrapper>
                 }
@@ -101,7 +105,10 @@ const App: React.FC = () => {
                 path="/works/:id"
                 element={
                   <PageWrapper>
-                    <WorkDetails scrollRotation={scrollRotation} />
+                    <WorkDetails
+                      scrollRotation={scrollRotation}
+                      workData={workDetail}
+                    />
                   </PageWrapper>
                 }
               />

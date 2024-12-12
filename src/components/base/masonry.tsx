@@ -1,27 +1,38 @@
 import { motion } from "framer-motion";
 import Button from "./button";
 import Paragraph from "./paragraph";
-import { works } from "../../helper/const";
-import { WorksData } from "../../helper/const";
 import { useNavigate } from "react-router-dom";
+import { WorksType } from "../../types/types";
+import moment from "moment";
 
 interface Props {
   scrollRotation: number;
   onMouseEnter: React.MouseEventHandler<HTMLParagraphElement>;
   onMouseLeave: React.MouseEventHandler<HTMLParagraphElement>;
+  data: WorksType[];
 }
 
-const MasonryGrid = ({ scrollRotation, onMouseEnter, onMouseLeave }: Props) => {
+const MasonryGrid = ({
+  scrollRotation,
+  onMouseEnter,
+  onMouseLeave,
+  data,
+}: Props) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
     navigate("/works");
   };
+
+  const handleDetailWorks = (slug: string, item: WorksType) => {
+    navigate(`/works/${slug}`, { state: { workData: item } });
+  };
+
   const parallaxStartPoint = 910;
   const parallaxEndPoint = 1770;
 
-  const columns: WorksData[][] = [[], [], [], []];
-  works.forEach((image, index) => {
+  const columns: WorksType[][] = [[], [], [], []];
+  data.forEach((image, index) => {
     columns[index % 4].push(image);
   });
 
@@ -52,34 +63,37 @@ const MasonryGrid = ({ scrollRotation, onMouseEnter, onMouseLeave }: Props) => {
           }}
           transition={{ type: "spring", stiffness: 30 }}
         >
-          {column.map((image) => (
+          {column.map((item) => (
             <motion.div
+              onClick={() => handleDetailWorks(item.slug, item)}
               onMouseEnter={onMouseEnter}
               onMouseLeave={onMouseLeave}
-              key={image.id}
+              key={item.id}
               className="relative overflow-hidden rounded-lg group"
             >
               <img
-                src={image.src}
-                alt={`Image ${image.id}`}
+                src={item.banner.url}
+                alt={`Image ${item.id}`}
                 className="object-cover w-full h-fit"
-                style={{ aspectRatio: `${image.width} / ${image.height}` }}
+                style={{
+                  aspectRatio: `${item.banner.width} / ${item.banner.height}`,
+                }}
               />
 
               <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 group-hover:transition-all duration-800 flex items-center justify-center">
                 <Paragraph className="absolute text-[#FAFAFA] top-4 transform -translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-1000">
-                  Social Media
+                  {item.category}
                 </Paragraph>
 
                 <Paragraph
                   size="xxl"
                   className="text-[#FAFAFA] font-neue-corp-bold transform translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-700"
                 >
-                  {image.name}
+                  {item.name}
                 </Paragraph>
 
-                <Paragraph className="absolute text-[#FAFAFA] bottom-4 transform translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-1000">
-                  2022
+                <Paragraph className="absolute text-[#FAFAFA] text-center bottom-4 left-0 right-0 transform translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-1000">
+                  {moment(item.date).format("YYYY")}
                 </Paragraph>
               </div>
             </motion.div>

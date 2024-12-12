@@ -1,7 +1,7 @@
 import Slider from "react-slick";
 
 interface Props {
-  images: string[];
+  images: string[] | undefined;
 }
 
 function Carousel({ images }: Props) {
@@ -30,7 +30,7 @@ function Carousel({ images }: Props) {
   return (
     <div className="slider-container">
       <Slider {...settings}>
-        {images.map((item) => (
+        {images?.map((item) => (
           <div key={item} className="w-full aspect-[4/5] overflow-hidden">
             <img
               src={item}

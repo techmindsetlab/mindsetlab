@@ -1,3 +1,4 @@
+import { WorksType } from "../../types/types";
 import MasonryGrid from "../base/masonry";
 import Title from "../base/title";
 
@@ -5,9 +6,10 @@ interface Props {
   scrollRotation: number;
   onMouseEnter: React.MouseEventHandler<HTMLParagraphElement>;
   onMouseLeave: React.MouseEventHandler<HTMLParagraphElement>;
+  data: WorksType[];
 }
 
-const Works = ({ scrollRotation, onMouseLeave, onMouseEnter }: Props) => {
+const Works = ({ scrollRotation, onMouseLeave, onMouseEnter, data }: Props) => {
   return (
     <div>
       <div className="flex items-center">
@@ -22,6 +24,7 @@ const Works = ({ scrollRotation, onMouseLeave, onMouseEnter }: Props) => {
         scrollRotation={scrollRotation}
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
+        data={data}
       />
     </div>
   );

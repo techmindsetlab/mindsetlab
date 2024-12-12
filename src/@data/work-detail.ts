@@ -1,4 +1,6 @@
-export const workDetail = [
+import { WorkDetailTypes } from "../types/workDetailTypes";
+
+export const workDetail: WorkDetailTypes[] = [
     {
         "data": {
             "id": 1,
@@ -134,7 +136,7 @@ export const workDetail = [
                                 "documentId": "nqji59u6z5d9njfsotp9ondb",
                                 "name": "SampleVideo_1280x720_2mb.mp4",
                                 "alternativeText": null,
-                                "caption": null,
+                                "caption": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
                                 "width": null,
                                 "height": null,
                                 "formats": null,
@@ -160,6 +162,188 @@ export const workDetail = [
                     "data": [
                         {
                             "id": 9,
+                            "attributes": {
+                                "documentId": "oqu70f0ytqt6al4u0z9fj8rz",
+                                "name": "spongebob.png",
+                                "alternativeText": null,
+                                "caption": null,
+                                "width": 1920,
+                                "height": 1920,
+                                "formats": {
+                                    "large": {
+                                        "ext": ".png",
+                                        "url": "https://res.cloudinary.com/dajenp9xv/image/upload/v1733394305/mindsetlab/staging/large_spongebob_aebb4a5d5c.png",
+                                        "hash": "large_spongebob_aebb4a5d5c",
+                                        "mime": "image/png",
+                                        "name": "large_spongebob.png",
+                                        "path": null,
+                                        "size": 246.45,
+                                        "width": 1000,
+                                        "height": 1000,
+                                        "sizeInBytes": 246447,
+                                        "provider_metadata": {
+                                            "public_id": "mindsetlab/staging/large_spongebob_aebb4a5d5c",
+                                            "resource_type": "image"
+                                        }
+                                    },
+                                    "small": {
+                                        "ext": ".png",
+                                        "url": "https://res.cloudinary.com/dajenp9xv/image/upload/v1733394304/mindsetlab/staging/small_spongebob_aebb4a5d5c.png",
+                                        "hash": "small_spongebob_aebb4a5d5c",
+                                        "mime": "image/png",
+                                        "name": "small_spongebob.png",
+                                        "path": null,
+                                        "size": 106.11,
+                                        "width": 500,
+                                        "height": 500,
+                                        "sizeInBytes": 106109,
+                                        "provider_metadata": {
+                                            "public_id": "mindsetlab/staging/small_spongebob_aebb4a5d5c",
+                                            "resource_type": "image"
+                                        }
+                                    },
+                                    "medium": {
+                                        "ext": ".png",
+                                        "url": "https://res.cloudinary.com/dajenp9xv/image/upload/v1733394304/mindsetlab/staging/medium_spongebob_aebb4a5d5c.png",
+                                        "hash": "medium_spongebob_aebb4a5d5c",
+                                        "mime": "image/png",
+                                        "name": "medium_spongebob.png",
+                                        "path": null,
+                                        "size": 176.02,
+                                        "width": 750,
+                                        "height": 750,
+                                        "sizeInBytes": 176016,
+                                        "provider_metadata": {
+                                            "public_id": "mindsetlab/staging/medium_spongebob_aebb4a5d5c",
+                                            "resource_type": "image"
+                                        }
+                                    },
+                                    "thumbnail": {
+                                        "ext": ".png",
+                                        "url": "https://res.cloudinary.com/dajenp9xv/image/upload/v1733394304/mindsetlab/staging/thumbnail_spongebob_aebb4a5d5c.png",
+                                        "hash": "thumbnail_spongebob_aebb4a5d5c",
+                                        "mime": "image/png",
+                                        "name": "thumbnail_spongebob.png",
+                                        "path": null,
+                                        "size": 25.1,
+                                        "width": 156,
+                                        "height": 156,
+                                        "sizeInBytes": 25102,
+                                        "provider_metadata": {
+                                            "public_id": "mindsetlab/staging/thumbnail_spongebob_aebb4a5d5c",
+                                            "resource_type": "image"
+                                        }
+                                    }
+                                },
+                                "hash": "spongebob_aebb4a5d5c",
+                                "ext": ".png",
+                                "mime": "image/png",
+                                "size": 74.12,
+                                "url": "https://res.cloudinary.com/dajenp9xv/image/upload/v1733394304/mindsetlab/staging/spongebob_aebb4a5d5c.png",
+                                "previewUrl": null,
+                                "provider": "cloudinary",
+                                "provider_metadata": {
+                                    "public_id": "mindsetlab/staging/spongebob_aebb4a5d5c",
+                                    "resource_type": "image"
+                                },
+                                "createdAt": "2024-12-05T10:25:06.211Z",
+                                "updatedAt": "2024-12-05T10:25:06.211Z",
+                                "publishedAt": "2024-12-05T10:25:06.213Z"
+                            }
+                        },
+                        {
+                            "id": 11,
+                            "attributes": {
+                                "documentId": "oqu70f0ytqt6al4u0z9fj8rz",
+                                "name": "spongebob.png",
+                                "alternativeText": null,
+                                "caption": null,
+                                "width": 1920,
+                                "height": 1920,
+                                "formats": {
+                                    "large": {
+                                        "ext": ".png",
+                                        "url": "https://res.cloudinary.com/dajenp9xv/image/upload/v1733394305/mindsetlab/staging/large_spongebob_aebb4a5d5c.png",
+                                        "hash": "large_spongebob_aebb4a5d5c",
+                                        "mime": "image/png",
+                                        "name": "large_spongebob.png",
+                                        "path": null,
+                                        "size": 246.45,
+                                        "width": 1000,
+                                        "height": 1000,
+                                        "sizeInBytes": 246447,
+                                        "provider_metadata": {
+                                            "public_id": "mindsetlab/staging/large_spongebob_aebb4a5d5c",
+                                            "resource_type": "image"
+                                        }
+                                    },
+                                    "small": {
+                                        "ext": ".png",
+                                        "url": "https://res.cloudinary.com/dajenp9xv/image/upload/v1733394304/mindsetlab/staging/small_spongebob_aebb4a5d5c.png",
+                                        "hash": "small_spongebob_aebb4a5d5c",
+                                        "mime": "image/png",
+                                        "name": "small_spongebob.png",
+                                        "path": null,
+                                        "size": 106.11,
+                                        "width": 500,
+                                        "height": 500,
+                                        "sizeInBytes": 106109,
+                                        "provider_metadata": {
+                                            "public_id": "mindsetlab/staging/small_spongebob_aebb4a5d5c",
+                                            "resource_type": "image"
+                                        }
+                                    },
+                                    "medium": {
+                                        "ext": ".png",
+                                        "url": "https://res.cloudinary.com/dajenp9xv/image/upload/v1733394304/mindsetlab/staging/medium_spongebob_aebb4a5d5c.png",
+                                        "hash": "medium_spongebob_aebb4a5d5c",
+                                        "mime": "image/png",
+                                        "name": "medium_spongebob.png",
+                                        "path": null,
+                                        "size": 176.02,
+                                        "width": 750,
+                                        "height": 750,
+                                        "sizeInBytes": 176016,
+                                        "provider_metadata": {
+                                            "public_id": "mindsetlab/staging/medium_spongebob_aebb4a5d5c",
+                                            "resource_type": "image"
+                                        }
+                                    },
+                                    "thumbnail": {
+                                        "ext": ".png",
+                                        "url": "https://res.cloudinary.com/dajenp9xv/image/upload/v1733394304/mindsetlab/staging/thumbnail_spongebob_aebb4a5d5c.png",
+                                        "hash": "thumbnail_spongebob_aebb4a5d5c",
+                                        "mime": "image/png",
+                                        "name": "thumbnail_spongebob.png",
+                                        "path": null,
+                                        "size": 25.1,
+                                        "width": 156,
+                                        "height": 156,
+                                        "sizeInBytes": 25102,
+                                        "provider_metadata": {
+                                            "public_id": "mindsetlab/staging/thumbnail_spongebob_aebb4a5d5c",
+                                            "resource_type": "image"
+                                        }
+                                    }
+                                },
+                                "hash": "spongebob_aebb4a5d5c",
+                                "ext": ".png",
+                                "mime": "image/png",
+                                "size": 74.12,
+                                "url": "https://res.cloudinary.com/dajenp9xv/image/upload/v1733394304/mindsetlab/staging/spongebob_aebb4a5d5c.png",
+                                "previewUrl": null,
+                                "provider": "cloudinary",
+                                "provider_metadata": {
+                                    "public_id": "mindsetlab/staging/spongebob_aebb4a5d5c",
+                                    "resource_type": "image"
+                                },
+                                "createdAt": "2024-12-05T10:25:06.211Z",
+                                "updatedAt": "2024-12-05T10:25:06.211Z",
+                                "publishedAt": "2024-12-05T10:25:06.213Z"
+                            }
+                        },
+                        {
+                            "id": 10,
                             "attributes": {
                                 "documentId": "oqu70f0ytqt6al4u0z9fj8rz",
                                 "name": "spongebob.png",
@@ -839,6 +1023,5 @@ export const workDetail = [
                 }
             }
         },
-        "meta": {}
     }
 ]

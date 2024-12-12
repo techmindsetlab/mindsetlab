@@ -84,8 +84,7 @@ const Contact = ({
 
       <Button
         text={"In Case You Missed It"}
-        size="small"
-        className="w-44 lg:w-64 font-neue-corp-thin mt-4 px-3 lg:py-2 lg:text-lg py-1.5"
+        className="w-44 lg:w-64 font-neue-corp-thin mt-6 px-3 lg:py-2 lg:text-lg text-[12px]"
         isEnabledArrow
       />
     </div>

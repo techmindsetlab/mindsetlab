@@ -4,14 +4,16 @@ import Works from "../components/section/works-section";
 import About from "../components/section/about-section";
 import Service from "../components/section/service-section";
 import Contact from "../components/section/contact-section";
+import { WorksType } from "../types/types";
 
 interface Props {
   setIsHovered: (isHovered: boolean) => void;
   scrollRotation: number;
   scale: number;
+  data: WorksType[];
 }
 
-const Home = ({ setIsHovered, scrollRotation, scale }: Props) => {
+const Home = ({ setIsHovered, scrollRotation, scale, data }: Props) => {
   return (
     <div>
       <div className="lg:px-12 px-5">
@@ -21,6 +23,7 @@ const Home = ({ setIsHovered, scrollRotation, scale }: Props) => {
           scrollRotation={scrollRotation}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
+          data={data}
         />
       </div>
       <div>

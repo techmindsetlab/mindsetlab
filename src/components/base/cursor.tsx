@@ -80,7 +80,7 @@ const Cursor = ({ isHovered, isLink }: Props) => {
           height: size,
           transition: `height 0.3s ease-out, width 0.3s ease-out`,
           transform: isLink && isHovered ? "scale(1.5)" : "scale(1)",
-          filter: isLink ? "blur(4px)" : "none",
+          filter: isLink ? "blur(10px)" : "none",
         }}
       >
         {isHovered && (
