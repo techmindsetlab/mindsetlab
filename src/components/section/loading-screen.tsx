@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const LoadingScreen: React.FC = () => {
+  const currentPath = useLocation();
   const [progress, setProgress] = useState(0);
   const navigate = useNavigate();
 
@@ -36,7 +37,9 @@ const LoadingScreen: React.FC = () => {
       }}
       onAnimationComplete={() => {
         if (progress === 100) {
-          setTimeout(() => {}, 1200);
+          setTimeout(() => {
+            navigate(currentPath.pathname);
+          }, 1200);
         }
       }}
     >
