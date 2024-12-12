@@ -36,9 +36,7 @@ const LoadingScreen: React.FC = () => {
       }}
       onAnimationComplete={() => {
         if (progress === 100) {
-          setTimeout(() => {
-            navigate("/");
-          }, 1200);
+          setTimeout(() => {}, 1200);
         }
       }}
     >
