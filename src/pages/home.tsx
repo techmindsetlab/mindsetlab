@@ -4,13 +4,13 @@ import Works from "../components/section/works-section";
 import About from "../components/section/about-section";
 import Service from "../components/section/service-section";
 import Contact from "../components/section/contact-section";
-import { WorksType } from "../types/types";
+import { WorksList } from "../types/home";
 
 interface Props {
   setIsHovered: (isHovered: boolean) => void;
   scrollRotation: number;
   scale: number;
-  data: WorksType[];
+  data: WorksList[];
 }
 
 const Home = ({ setIsHovered, scrollRotation, scale, data }: Props) => {

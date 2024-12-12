@@ -5,7 +5,7 @@ import Contact from "../components/section/contact-section";
 import WorkDetailDivider from "../components/base/work-detail-divider";
 import Highlight from "../components/section/highlight";
 import moment from "moment";
-import { WorkDetailTypes } from "../types/workDetailTypes";
+import { WorkDetailTypes } from "../types/work-detail";
 import { useLocation, useNavigate } from "react-router-dom";
 import HighlightVideo from "../components/section/highlight-video";
 
@@ -19,11 +19,6 @@ const WorkDetails = ({ scrollRotation, workData }: Props) => {
   const location = useLocation();
   const path = location.pathname;
   const slug = path.split("/").pop();
-  const images = [
-    "https://www.stockvault.net/data/2012/10/29/137060/preview16.jpg",
-    "https://www.stockvault.net/data/2012/10/29/137060/preview16.jpg",
-    "https://www.stockvault.net/data/2012/10/29/137060/preview16.jpg",
-  ];
 
   const detailWork = workData.find(
     (item) => item.data.attributes.slug === slug
@@ -107,7 +102,9 @@ const WorkDetails = ({ scrollRotation, workData }: Props) => {
 
           <div className="lg:h-[42rem] h-[14rem] rounded-lg overflow-hidden">
             <img
-              src={detailWork?.data?.attributes.banner.data.attributes.url}
+              src={
+                detailWork?.data?.attributes.banner.image.data.attributes.url
+              }
               className="w-full h-full object-cover rounded-lg"
             />
           </div>
@@ -152,15 +149,17 @@ const WorkDetails = ({ scrollRotation, workData }: Props) => {
             <img src="/phone_frame.svg" />
             <div className="absolute top-4 w-[75%] lg:w-[90%] lg:h-[65vh] h-[55vh] overflow-hidden">
               <Slider {...settings} className="h-[55vh]">
-                {images.map((image, index) => (
-                  <div key={index} className="w-full lg:h-[65vh] h-[55vh]">
-                    <img
-                      className="w-full lg:h-[65vh] h-[55vh] object-cover rounded-t-2xl"
-                      src={image}
-                      alt={`Slide ${index + 1}`}
-                    />
-                  </div>
-                ))}
+                {detailWork?.data.attributes.highlightPhoto.data.map(
+                  (image, index) => (
+                    <div key={index} className="w-full lg:h-[65vh] h-[55vh]">
+                      <img
+                        className="w-full lg:h-[65vh] h-[55vh] object-cover rounded-t-2xl"
+                        src={image.attributes.url}
+                        alt={`Slide ${index + 1}`}
+                      />
+                    </div>
+                  )
+                )}
               </Slider>
             </div>
           </div>
@@ -168,27 +167,29 @@ const WorkDetails = ({ scrollRotation, workData }: Props) => {
 
         {/* PHONE FRAME DESKTOP VIEW */}
         <div className="hidden lg:flex relative mb-12 justify-center gap-16">
-          {images.map((image, index) => (
-            <div
-              className={`${
-                index === 1 ? "mt-12" : index === 2 ? "mt-24" : ""
-              } relative`}
-              key={index}
-            >
-              <img src="/phone_frame.svg" />
-              <div className="absolute top-4 left-4 right-4 w-[75%] lg:w-[90%] lg:h-[65vh] h-[55vh] overflow-hidden">
-                <div className="h-[55vh]">
-                  <div className="w-full lg:h-[65vh] h-[55vh]">
-                    <img
-                      className="w-full lg:h-[60vh] h-[55vh] object-cover rounded-t-2xl"
-                      src={image}
-                      alt={`Slide ${index + 1}`}
-                    />
+          {detailWork?.data.attributes.highlightPhoto.data.map(
+            (image, index) => (
+              <div
+                className={`${
+                  index === 1 ? "mt-12" : index === 2 ? "mt-24" : ""
+                } relative`}
+                key={index}
+              >
+                <img src="/phone_frame.svg" />
+                <div className="absolute top-4 left-4 right-4 w-[75%] lg:w-[90%] lg:h-[65vh] h-[55vh] overflow-hidden">
+                  <div className="h-[55vh]">
+                    <div className="w-full lg:h-[55vh] h-[55vh]">
+                      <img
+                        className="w-full lg:h-[55vh] h-[55vh] object-cover rounded-t-2xl"
+                        src={image.attributes.url}
+                        alt={`Slide ${index + 1}`}
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            )
+          )}
         </div>
       </div>
 

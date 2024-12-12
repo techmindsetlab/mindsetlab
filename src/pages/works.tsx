@@ -7,14 +7,14 @@ import WorksCard from "../components/section/all-works";
 import { worksCategory } from "../helper/const";
 import { motion } from "motion/react";
 import Contact from "../components/section/contact-section";
-import { WorksType } from "../types/types";
+import { WorksList } from "../types/works";
 
 interface Props {
   onMouseEnter?: React.MouseEventHandler<HTMLParagraphElement>;
   onMouseLeave?: React.MouseEventHandler<HTMLParagraphElement>;
   scale: number;
   scrollRotation: number;
-  data: WorksType[];
+  data: WorksList[];
 }
 
 const Works = ({

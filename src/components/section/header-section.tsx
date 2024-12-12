@@ -2,6 +2,7 @@ import BottomAnimation from "../../animation/from-bottom";
 import Button from "../base/button";
 import Paragraph from "../base/paragraph";
 import Title from "../base/title";
+import { motion } from "framer-motion";
 
 interface Props {
   scrollRotation: number;
@@ -13,6 +14,7 @@ const Header = ({ scrollRotation, scale }: Props) => {
     <div>
       {/* HEADER LOGO */}
       <BottomAnimation
+        duration={1.2}
         wrapperStyle="mt-[6rem] lg:mt-[8rem]"
         motionStyle="flex items-center"
       >
@@ -45,7 +47,7 @@ const Header = ({ scrollRotation, scale }: Props) => {
         {/* COPY MINDSETLAB */}
         <div className="flex items-center mt-4 lg:my-12">
           <div className="lg:w-full w-[80%]">
-            <BottomAnimation>
+            <BottomAnimation duration={1.4}>
               <Paragraph
                 size="lg"
                 className="text-[#FAFAFA] leading-5 text-2xl lg:text-5xl"
@@ -53,7 +55,7 @@ const Header = ({ scrollRotation, scale }: Props) => {
                 Tempting innovation with a touch of subtle sophistication
               </Paragraph>
             </BottomAnimation>
-            <BottomAnimation>
+            <BottomAnimation duration={1.5}>
               <Paragraph
                 size="mini"
                 className="text-[#FAFAFA] text-[8px] lg:text-xl mt-2 font-neue-corp-thin leading-3"
@@ -87,28 +89,41 @@ const Header = ({ scrollRotation, scale }: Props) => {
         </div>
 
         {/* CONTACT US  */}
-        <div className="border w-full lg:w-[50%] mt-8 rounded-md px-3 lg:px-5 py-2 border-[#FAFAFA] bg-[#FAFAFA]">
-          <img
-            src="/boy_cap.svg"
-            className="w-[50px] h-[50px] lg:w-[4rem] lg:h-[4rem]"
-            alt="boy cap"
-          />
-          <Title
-            text="Your brand isn’t branding? We listen and we don’t judge!"
-            className="text-[15px] lg:text-xl w-[80%] mt-1 lg:mt-3 leading-4"
-          />
-          <Paragraph
-            size="mini"
-            className="my-1.5 lg:my-3 w-[80%] text-[8px] lg:text-[16px] font-neue-corp-thin leading-4"
+
+        <div className="overflow-hidden w-full lg:w-[50%] relative">
+          <motion.div
+            initial={{ y: 200 }}
+            animate={{ y: 0 }}
+            transition={{
+              type: "tween",
+              ease: "easeInOut",
+              duration: 1.8,
+              delay: 0,
+            }}
+            className="border w-full mt-8 rounded-md px-3 lg:px-5 py-2 border-[#FAFAFA] bg-[#FAFAFA]"
           >
-            Ready to get started? Reach out—we’re just a message away!
-          </Paragraph>
-          <Button
-            size="extrasmall"
-            isEnabledArrow
-            className="w-full lg:text-xl text-[14px] font-neue-corp-thin lg:py-3 lg:mb-3 py-2"
-            text={"Hit us Up!"}
-          />
+            <img
+              src="/boy_cap.svg"
+              className="w-[50px] h-[50px] lg:w-[4rem] lg:h-[4rem]"
+              alt="boy cap"
+            />
+            <Title
+              text="Your brand isn’t branding? We listen and we don’t judge!"
+              className="text-[15px] lg:text-xl w-[80%] mt-1 lg:mt-3 leading-4"
+            />
+            <Paragraph
+              size="mini"
+              className="my-1.5 lg:my-3 w-[80%] text-[8px] lg:text-[16px] font-neue-corp-thin leading-4"
+            >
+              Ready to get started? Reach out—we’re just a message away!
+            </Paragraph>
+            <Button
+              size="extrasmall"
+              isEnabledArrow
+              className="w-full lg:text-xl text-[14px] font-neue-corp-thin lg:py-3 lg:mb-3 py-2"
+              text={"Hit us Up!"}
+            />
+          </motion.div>
         </div>
       </div>
     </div>

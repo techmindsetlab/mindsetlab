@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import Button from "../base/button";
 import { useNavigate } from "react-router-dom";
-import { WorksType } from "../../types/types";
+import { WorksList } from "../../types/works";
 
 interface Props {
-  data: WorksType[];
+  data: WorksList[];
   onMouseEnter?: React.MouseEventHandler<HTMLParagraphElement>;
   onMouseLeave?: React.MouseEventHandler<HTMLParagraphElement>;
 }
@@ -13,7 +13,7 @@ const WorksCard = ({ data, onMouseEnter, onMouseLeave }: Props) => {
   const navigate = useNavigate();
   const [visibleIndex, setVisibleIndex] = useState(0);
 
-  const handleDetailWorks = (slug: string, item: WorksType) => {
+  const handleDetailWorks = (slug: string, item: WorksList) => {
     navigate(`/works/${slug}`, { state: { workData: item } });
   };
 
@@ -55,7 +55,7 @@ const WorksCard = ({ data, onMouseEnter, onMouseLeave }: Props) => {
             <div
               className="w-full absolute h-full rounded-[15px] lg:block hidden transition-all duration-700 ease-in-out opacity-0 group-hover:opacity-100 group-hover:scale-100 group-hover:blur-0 scale-95 blur-sm"
               style={{
-                backgroundImage: `url(${item.banner.url})`,
+                backgroundImage: `url(${item.banner.image.url})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
               }}
@@ -66,7 +66,7 @@ const WorksCard = ({ data, onMouseEnter, onMouseLeave }: Props) => {
             {/* MOBILE VERSION */}
             <div className="w-full h-[26vh] rounded-lg border lg:hidden">
               <img
-                src={item.banner.url}
+                src={item.banner.image.url}
                 className="w-full h-full rounded-lg object-cover"
                 alt={item.title}
               />

@@ -2,14 +2,14 @@ import { motion } from "framer-motion";
 import Button from "./button";
 import Paragraph from "./paragraph";
 import { useNavigate } from "react-router-dom";
-import { WorksType } from "../../types/types";
 import moment from "moment";
+import { WorksList } from "../../types/home";
 
 interface Props {
   scrollRotation: number;
   onMouseEnter: React.MouseEventHandler<HTMLParagraphElement>;
   onMouseLeave: React.MouseEventHandler<HTMLParagraphElement>;
-  data: WorksType[];
+  data: WorksList[];
 }
 
 const MasonryGrid = ({
@@ -24,14 +24,14 @@ const MasonryGrid = ({
     navigate("/works");
   };
 
-  const handleDetailWorks = (slug: string, item: WorksType) => {
+  const handleDetailWorks = (slug: string, item: WorksList) => {
     navigate(`/works/${slug}`, { state: { workData: item } });
   };
 
   const parallaxStartPoint = 910;
   const parallaxEndPoint = 1770;
 
-  const columns: WorksType[][] = [[], [], [], []];
+  const columns: WorksList[][] = [[], [], [], []];
   data.forEach((image, index) => {
     columns[index % 4].push(image);
   });
@@ -63,16 +63,16 @@ const MasonryGrid = ({
           }}
           transition={{ type: "spring", stiffness: 30 }}
         >
-          {column.map((item) => (
+          {column.map((item, index) => (
             <motion.div
               onClick={() => handleDetailWorks(item.slug, item)}
               onMouseEnter={onMouseEnter}
               onMouseLeave={onMouseLeave}
-              key={item.id}
+              key={index}
               className="relative overflow-hidden rounded-lg group"
             >
               <img
-                src={item.banner.url}
+                src={item.banner.thumbnail?.url}
                 alt={`Image ${item.id}`}
                 className="object-cover w-full h-fit"
                 style={{
@@ -87,7 +87,7 @@ const MasonryGrid = ({
 
                 <Paragraph
                   size="xxl"
-                  className="text-[#FAFAFA] font-neue-corp-bold transform translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-700"
+                  className="text-[#FAFAFA] font-neue-corp-bold transform translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500"
                 >
                   {item.name}
                 </Paragraph>
