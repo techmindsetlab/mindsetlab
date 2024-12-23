@@ -22,7 +22,7 @@ export const navigation = [
     { name: "contact", href: "/contact" },
 ];
 
-export const worksCategory = ["All Works", "Social Media", "Campaign", "Website Development", "VR Website"]
+export const worksCategory = ["All Works", "Social Media", "Campaign", "Website Development", "Mobile Apps"]
 export const needs = ["Social Media", "Campaign", "Website Development", "VR Website", "etc."]
 
 export const footerNav = [
