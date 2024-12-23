@@ -24,11 +24,11 @@ const MasonryGrid = ({
     navigate("/works");
   };
 
-  const handleDetailWorks = (slug: string, item: WorksList) => {
-    navigate(`/works/${slug}`, { state: { workData: item } });
-  };
+  // const handleDetailWorks = (slug: string, item: WorksList) => {
+  //   navigate(`/works/${slug}`, { state: { workData: item } });
+  // };
 
-  const parallaxStartPoint = 910;
+  const parallaxStartPoint = 880;
   const parallaxEndPoint = 1770;
 
   const columns: WorksList[][] = [[], [], [], []];
@@ -56,7 +56,7 @@ const MasonryGrid = ({
         <motion.div
           key={columnIndex}
           className={`${
-            columnIndex === 2 && "-mt-14 lg:mt-0"
+            columnIndex === 2 && "-mt-20 lg:mt-0"
           } grid h-fit gap-4`}
           style={{
             transform: calculateParallax(scrollRotation, columnIndex),
@@ -65,7 +65,7 @@ const MasonryGrid = ({
         >
           {column.map((item, index) => (
             <motion.div
-              onClick={() => handleDetailWorks(item.slug, item)}
+              // onClick={() => handleDetailWorks(item.slug, item)}
               onMouseEnter={onMouseEnter}
               onMouseLeave={onMouseLeave}
               key={index}

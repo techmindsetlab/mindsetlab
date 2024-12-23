@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
-import Button from "../base/button";
+// import Button from "../base/button";
 import Paragraph from "../base/paragraph";
 import Title from "../base/title";
 import { motion } from "framer-motion";
 import ServiceSVG from "../../animation/service-header";
+import { getImagePosition } from "../../helper/getImagePosition";
 
 interface Props {
   scrollRotation: number;
@@ -11,6 +12,7 @@ interface Props {
 
 const Service = ({ scrollRotation }: Props) => {
   const [isDesktop, setIsDesktop] = useState(false);
+  const scrollIndicator = 2200;
 
   useEffect(() => {
     const handleResize = () => {
@@ -22,25 +24,15 @@ const Service = ({ scrollRotation }: Props) => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const getImagePosition = () => {
-    const startScroll = 2600;
-
-    if (scrollRotation >= startScroll) {
-      return "0%";
-    }
-
-    const offset = (startScroll - scrollRotation) / 10;
-    const translateValue = offset > 0 ? -offset : 0;
-    return `${translateValue}%`;
-  };
-
   return (
     <div className="bg-[#1E1E1E] lg:py-12 lg:px-12 p-5">
       <motion.div
         className="w-full h-full"
         style={{
           transform: `${
-            isDesktop ? `translateX(${getImagePosition()})` : "none"
+            isDesktop
+              ? `translateX(${getImagePosition(scrollRotation, scrollIndicator, true)})`
+              : "none"
           } `,
           transition: "transform 0.1s ease-out",
         }}
@@ -70,13 +62,13 @@ const Service = ({ scrollRotation }: Props) => {
         </Paragraph>
       </div>
 
-      <Button
+      {/* <Button
         text={"Our Service"}
         size="small"
         isPrimary={false}
         className="w-44 lg:w-64 font-neue-corp-thin  mt-4 px-3 lg:py-2 lg:text-lg py-1.5"
         isEnabledArrow
-      />
+      /> */}
     </div>
   );
 };

@@ -38,6 +38,7 @@ const Works = ({
   return (
     <div className="max-w-full mx-auto">
       <BottomAnimation
+        duration={1.2}
         wrapperStyle="mt-[6rem] lg:mt-[8rem]"
         motionStyle="flex justify-between lg:-ml-2 mx-4 lg:px-0 lg:justify-center"
       >
@@ -66,10 +67,10 @@ const Works = ({
           }}
         />
       </BottomAnimation>
-      <div className="px-5 lg:px-8">
+      <div className="px-5 lg:px-12">
         <Divider isHasText text="WORKS" scrollRotation={scrollRotation} />
-        <div className="px-2 w-[70%]">
-          <BottomAnimation>
+        <div className="px-2 lg:w-[70%]">
+          <BottomAnimation duration={1.3}>
             <Paragraph
               size="xxl"
               style={{ lineHeight: "1.2" }}

@@ -12,6 +12,7 @@ import Footer from "./components/section/footer";
 import { workDetail } from "./@data/work-detail";
 import { works } from "./@data/works";
 import { home } from "./@data/home";
+import ContactPage from "./pages/contact";
 
 const App: React.FC = () => {
   const [isHovered, setIsHovered] = useState<boolean>(false);
@@ -110,6 +111,14 @@ const App: React.FC = () => {
                       scrollRotation={scrollRotation}
                       workData={workDetail}
                     />
+                  </PageWrapper>
+                }
+              />
+              <Route
+                path="/contact"
+                element={
+                  <PageWrapper>
+                    <ContactPage scrollRotation={scrollRotation} />
                   </PageWrapper>
                 }
               />

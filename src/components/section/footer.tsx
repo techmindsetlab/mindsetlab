@@ -46,11 +46,21 @@ const Footer = ({ onMouseEnter, onMouseLeave }: Props) => {
             IN YOUR MIND?
           </Paragraph>
           <div className="hidden lg:flex mt-3 justify-start gap-2">
-            <a href="">
-              <img src="/linkedin_logo.svg" className="w-10 h-10 cursor-none" />
-            </a>
-            <a href="">
+            <a
+              target="_blank"
+              href="https://www.linkedin.com/company/mindsetlabid/"
+            >
               <img
+                onMouseEnter={onMouseEnter}
+                onMouseLeave={onMouseLeave}
+                src="/linkedin_logo.svg"
+                className="w-10 h-10 cursor-none"
+              />
+            </a>
+            <a target="_blank" href="https://www.instagram.com/mindsetlab.id/">
+              <img
+                onMouseEnter={onMouseEnter}
+                onMouseLeave={onMouseLeave}
                 src="/instagram_logo.svg"
                 className="w-10 h-10 cursor-none"
               />
@@ -73,7 +83,7 @@ const Footer = ({ onMouseEnter, onMouseLeave }: Props) => {
       <div className="hidden lg:block">
         <Divider
           isHasText
-          textWidth="w-[12rem]"
+          textWidth="w-[12.5rem]"
           text="© 2023 — Copyright"
           scrollRotation={undefined}
         />

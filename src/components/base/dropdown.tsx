@@ -5,11 +5,13 @@ import { BsChevronDown } from "react-icons/bs";
 interface DropdownProps {
   options: string[];
   onSelect: (option: string) => void;
+  isForm?: boolean;
   selectedCategory: string | null;
 }
 
 const Dropdown: React.FC<DropdownProps> = ({
   options,
+  isForm = false,
   onSelect,
   selectedCategory,
 }) => {
@@ -23,9 +25,20 @@ const Dropdown: React.FC<DropdownProps> = ({
     <div className="relative">
       <button
         onClick={toggleDropdown}
-        className="bg-[#1e1e1e] cursor-none justify-between text-[14px] w-[10rem] text-[#fafafa] font-neue-corp-thin border border-[#fafafa] py-1 px-4 rounded-md flex items-center gap-2"
+        className={`${
+          isForm
+            ? "bg-[#FAFAFA] w-full text-[#1e1e1e] border-[#1e1e1e] p-3"
+            : "bg-[#1e1e1e] w-[10rem] text-[#fafafa] border-[#fafafa] px-4 py-1"
+        }  cursor-none justify-between text-[14px] font-neue-corp-thin border rounded-md flex items-center gap-2`}
       >
-        {selectedCategory ? selectedCategory : "All Works"}
+        {isForm ? (
+          <span className="font-neue-machina-regular">
+            {selectedCategory ? selectedCategory : "Needs"}
+          </span>
+        ) : (
+          <span>{selectedCategory ? selectedCategory : "All Works"}</span>
+        )}
+
         <BsChevronDown
           className={`transition-transform duration-300 transform ${
             isOpen ? "rotate-180" : "rotate-0"
@@ -38,7 +51,9 @@ const Dropdown: React.FC<DropdownProps> = ({
         animate={{ opacity: isOpen ? 1 : 0, y: isOpen ? 0 : -20 }}
         exit={{ opacity: 0, y: -20 }}
         transition={{ duration: 0.3 }}
-        className="absolute top-10 left-4 bg-[#333333] text-white rounded-md w-48 shadow-lg"
+        className={`absolute  ${
+          isForm ? "w-full left-0 top-14" : "left-4 w-48 top-10"
+        }  bg-[#333333] text-white rounded-md  shadow-lg`}
         style={{ zIndex: 10 }}
       >
         {isOpen && (

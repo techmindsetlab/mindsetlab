@@ -11,6 +11,9 @@ interface ButtonProps {
   isPrimary?: boolean;
   isEnabledArrow?: boolean;
   isSmallButton?: boolean;
+  hasImage?: boolean;
+  imgSrc?: string;
+  type?: "button" | "submit";
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -21,6 +24,9 @@ const Button: React.FC<ButtonProps> = ({
   isEnabledArrow = false,
   isSmallButton = false,
   className = "",
+  hasImage = false,
+  imgSrc,
+  type
 }) => {
   const baseStyle = "rounded font-bold focus:outline-none";
 
@@ -35,7 +41,7 @@ const Button: React.FC<ButtonProps> = ({
     border: `${isPrimary ? "1px solid #1e1e1e" : "1px solid #fafafa"}`,
     color: "#FAFAFA",
     outline: "none",
-    transition: "all 0.3s ease",
+    transition: "all 0.5s ease",
   };
 
   const beforeStyle: React.CSSProperties = {
@@ -47,14 +53,14 @@ const Button: React.FC<ButtonProps> = ({
     width: "100%",
     height: "100%",
     display: "flex",
-    justifyContent: "space-between",
+    justifyContent: !hasImage ? "space-between" : "start",
     alignItems: "center",
     backgroundColor: "#1e1e1e",
     padding: isSmallButton ? 10 : 20,
     color: "#fafafa",
     opacity: 1,
     transform: "rotateX(0)",
-    transition: "transform 0.5s, opacity 0.5s",
+    transition: "transform 0.8s, opacity 0.8s",
   };
 
   const afterStyle: React.CSSProperties = {
@@ -65,7 +71,7 @@ const Button: React.FC<ButtonProps> = ({
     padding: isSmallButton ? 10 : 20,
     left: "0",
     width: "100%",
-    justifyContent: "space-between",
+    justifyContent: !hasImage ? "space-between" : "start",
     height: "100%",
     display: "flex",
     alignItems: "center",
@@ -99,23 +105,34 @@ const Button: React.FC<ButtonProps> = ({
   return (
     <button
       onClick={onClick}
+      type={type}
       className={`${baseStyle} cursor-none ${
-        isEnabledArrow && "flex items-center justify-between"
+        isEnabledArrow && !hasImage ? "flex items-center justify-between" : ""
       } ${className}`}
       style={buttonStyle}
       onMouseEnter={handleHover}
       onMouseLeave={handleMouseLeave}
       disabled={disabled}
     >
-      <span
-        className="before justify-between"
-        style={beforeStyle}
-        data-front={text}
-      >
+      <span className={`before`} style={beforeStyle} data-front={text}>
+        {hasImage && (
+          <img
+            src={imgSrc}
+            className="w-3.5 mix-blend-difference h-3.5 mr-2"
+            alt=""
+          />
+        )}
         {text}
         {isEnabledArrow && <IoIosArrowForward />}
       </span>
       <span className="after" style={afterStyle} data-back={text}>
+        {hasImage && (
+          <img
+            src={imgSrc}
+            className="w-3.5 mix-blend-difference mr-2 h-3.5"
+            alt=""
+          />
+        )}
         {text}
         {isEnabledArrow && <IoIosArrowForward />}
       </span>

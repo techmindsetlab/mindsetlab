@@ -54,13 +54,13 @@ const Cursor = ({ isHovered, isLink }: Props) => {
         arrowRef.current,
         {
           opacity: 0,
-          x: -50, // Mulai dari kiri
-          y: -50, // Mulai dari atas
+          x: -50,
+          y: -50,
         },
         {
           opacity: 1,
           x: 0,
-          y: 0, // Pergi ke posisi tengah
+          y: 0,
           duration: 0.8,
           ease: "power3.out",
         }
@@ -69,42 +69,40 @@ const Cursor = ({ isHovered, isLink }: Props) => {
   }, [isHovered]);
 
   return (
-    <>
-      <div
-        ref={circle}
-        className={`fixed top-0 left-0 sm:block hidden z-40 cursor-none bg-[#FAFAFA] ${
-          !isHovered && "mix-blend-difference"
-        } rounded-full pointer-events-none`}
-        style={{
-          width: size,
-          height: size,
-          transition: `height 0.3s ease-out, width 0.3s ease-out`,
-          transform: isLink && isHovered ? "scale(1.5)" : "scale(1)",
-          filter: isLink ? "blur(10px)" : "none",
-        }}
-      >
-        {isHovered && (
-          <div
-            ref={arrowRef}
-            className="absolute text-[#1e1e1e] inset-0 flex items-center justify-center"
+    <div
+      ref={circle}
+      className={`fixed top-0 left-0 sm:block hidden z-40 cursor-none bg-[#FAFAFA] ${
+        !isHovered && "mix-blend-difference"
+      } rounded-full pointer-events-none`}
+      style={{
+        width: size,
+        height: size,
+        transition: `height 0.3s ease-out, width 0.3s ease-out`,
+        transform: isLink && isHovered ? "scale(1.5)" : "scale(1)",
+        filter: isLink ? "blur(10px)" : "none",
+      }}
+    >
+      {isHovered && (
+        <div
+          ref={arrowRef}
+          className="absolute text-[#1e1e1e] inset-0 flex items-center justify-center"
+          style={{
+            opacity: isHovered ? 1 : 0,
+            transition: "opacity 0.8s ease-out",
+            mixBlendMode: "normal",
+          }}
+        >
+          <IoIosArrowRoundForward
+            className="text-[#1e1e1e] text-5xl"
             style={{
-              opacity: isHovered ? 1 : 0,
-              transition: "opacity 0.8s ease-out",
+              transition: "transform 0.8s ease-out",
               mixBlendMode: "normal",
+              transform: "rotate(45deg)",
             }}
-          >
-            <IoIosArrowRoundForward
-              className="text-[#1e1e1e] text-5xl"
-              style={{
-                transition: "transform 0.8s ease-out",
-                mixBlendMode: "normal",
-                transform: "rotate(45deg)",
-              }}
-            />
-          </div>
-        )}
-      </div>
-    </>
+          />
+        </div>
+      )}
+    </div>
   );
 };
 

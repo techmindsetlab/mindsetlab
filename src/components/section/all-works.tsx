@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import Button from "../base/button";
-import { useNavigate } from "react-router-dom";
+// import Button from "../base/button";
+// import { useNavigate } from "react-router-dom";
 import { WorksList } from "../../types/works";
 
 interface Props {
@@ -10,12 +10,12 @@ interface Props {
 }
 
 const WorksCard = ({ data, onMouseEnter, onMouseLeave }: Props) => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [visibleIndex, setVisibleIndex] = useState(0);
 
-  const handleDetailWorks = (slug: string, item: WorksList) => {
-    navigate(`/works/${slug}`, { state: { workData: item } });
-  };
+  // const handleDetailWorks = (slug: string, item: WorksList) => {
+  //   navigate(`/works/${slug}`, { state: { workData: item } });
+  // };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -42,7 +42,7 @@ const WorksCard = ({ data, onMouseEnter, onMouseLeave }: Props) => {
             key={index}
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
-            onClick={() => handleDetailWorks(item.slug, item)}
+            // onClick={() => handleDetailWorks(item.slug, item)}
             className={`sticky flex-col lg:gap-12 lg:border border-t border-b -mt-12 lg:rounded-[15px] lg:px-8 lg:pb-0 pb-16 lg:pt-0 pt-4 bg-[#1e1e1e] flex h-[60vh] items-center justify-center group transition-all duration-500 ease-in-out ${
               isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
             }`}
@@ -81,7 +81,7 @@ const WorksCard = ({ data, onMouseEnter, onMouseLeave }: Props) => {
               </p>
             </div>
 
-            <div className="w-full lg:hidden flex justify-start">
+            {/* <div className="w-full lg:hidden flex justify-start">
               <Button
                 text={"Detail Work"}
                 size="small"
@@ -90,7 +90,7 @@ const WorksCard = ({ data, onMouseEnter, onMouseLeave }: Props) => {
                 className="w-44 text-[12px] lg:w-64 font-neue-corp-thin mt-4 px-3 lg:py-2 lg:text-lg py-1.5"
                 isEnabledArrow
               />
-            </div>
+            </div> */}
           </div>
         );
       })}

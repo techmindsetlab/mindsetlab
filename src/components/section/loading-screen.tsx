@@ -41,17 +41,7 @@ const LoadingScreen: React.FC = () => {
       }}
     >
       <div className="w-full p-8">
-        <motion.div
-          className="text-right text-sm font-semibold text-[#1e1e1e] mt-2"
-          initial={{ opacity: 1 }}
-          animate={{
-            scale: progress === 100 ? 0.8 : 1,
-          }}
-          transition={{
-            duration: 0.6,
-            ease: "easeOut",
-          }}
-        >
+        <motion.div className="text-right text-sm font-semibold text-[#1e1e1e] mt-2">
           {progress}%
         </motion.div>
         <div className="h-1 bg-gray-300 w-full rounded-full">
