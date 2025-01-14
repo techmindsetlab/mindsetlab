@@ -49,31 +49,35 @@ const Footer = ({ onMouseEnter, onMouseLeave }: Props) => {
           <div className="hidden lg:flex mt-3 justify-start gap-8">
             <a
               target="_blank"
-              className="flex cursor-none items-center"
+              className="group flex cursor-none items-center relative"
               href="https://www.linkedin.com/company/mindsetlabid/"
             >
               <Paragraph
                 onMouseEnter={onMouseEnter}
                 onMouseLeave={onMouseLeave}
-                className="text-[#FAFAFA]"
+                className="text-[#FAFAFA] relative"
               >
                 Linkedin
               </Paragraph>
               <MdArrowOutward color="white" />
+              {/* Border animation */}
+              <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
             </a>
             <a
-              className="flex cursor-none items-center"
               target="_blank"
+              className="group flex cursor-none items-center relative"
               href="https://www.instagram.com/mindsetlab.id/"
             >
               <Paragraph
                 onMouseEnter={onMouseEnter}
                 onMouseLeave={onMouseLeave}
-                className="text-[#FAFAFA]"
+                className="text-[#FAFAFA] relative"
               >
                 Instagram
               </Paragraph>
               <MdArrowOutward color="white" />
+              {/* Border animation */}
+              <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
             </a>
           </div>
         </div>
