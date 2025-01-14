@@ -31,7 +31,7 @@ export const footerNav = [
         subnavigation: [
             { name: "Production Campaign", href: "" },
             { name: "Social Media", href: "" },
-            { name: "Compunknown Profile", href: "" },
+            { name: "Company Profile", href: "" },
             { name: "Virtual Website", href: "" },
         ],
     },
