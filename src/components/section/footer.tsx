@@ -101,7 +101,7 @@ const Footer = ({ onMouseEnter, onMouseLeave }: Props) => {
       <div className="hidden lg:block">
         <Divider
           isHasText
-          textWidth="w-[35rem]"
+          textWidth="w-[38.5rem]"
           text="All rights reserved, 2019 - 2025 | PT. Bingo Indonesia"
           scrollRotation={undefined}
         />
