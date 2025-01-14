@@ -52,8 +52,8 @@ export const footerNav = [
     {
         navigation: "CONTACT",
         subnavigation: [
-            { name: "Email", href: "" },
-            { name: "Whatsapp", href: "" },
+            { name: "Email", href: "mailto:hi@mindsetlab.id" },
+            { name: "Whatsapp", href: "https://wa.me/6281311206663" },
         ],
     },
 ];

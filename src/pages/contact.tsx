@@ -39,18 +39,18 @@ const ContactPage = ({ scrollRotation }: Props) => {
 
   return (
     <div>
-      <div className="px-5 lg:px-12">
+      <div className="px-4 lg:px-12">
         <BottomAnimation
           duration={1.2}
           wrapperStyle="mt-[6rem] lg:mt-[7rem]"
-          motionStyle="flex justify-between px-8 lg:-ml-2 mx-4 lg:px-0 lg:justify-center"
+          motionStyle="flex justify-between lg:px-8 lg:-ml-2 lg:mx-4 lg:px-0 lg:justify-center"
         >
           <ContactSVG isWhite />
         </BottomAnimation>
         <Divider scrollRotation={scrollRotation} />
       </div>
 
-      <div className="lg:w-[70%] px-12">
+      <div className="lg:w-[70%] px-4 lg:px-12">
         <BottomAnimation duration={1.3}>
           <Paragraph
             size="xxl"
@@ -73,11 +73,11 @@ const ContactPage = ({ scrollRotation }: Props) => {
           </Paragraph>
         </BottomAnimation>
       </div>
-      <div className="bg-[#FAFAFA] flex px-12 mt-12">
-        <div className="w-[25%] border-r py-8 border-[#1E1E1E]">
+      <div className="bg-[#FAFAFA] lg:flex lg:px-12 px-4 mt-12">
+        <div className="lg:w-[25%] w-full lg:border-r py-8 border-[#1E1E1E]">
           <Paragraph
             text="Get in Touch"
-            className="font-neue-corp-bold text-lg lg:text-4xl text-[#1E1E1E]"
+            className="font-neue-corp-bold text-[2rem] lg:text-4xl text-center lg:text-left text-[#1E1E1E]"
           />
           <div className="grid">
             <Button
@@ -90,7 +90,7 @@ const ContactPage = ({ scrollRotation }: Props) => {
                 )
               }
               text={"Linkedin"}
-              className="w-44 lg:w-64 font-neue-corp-thin mt-6 px-3 lg:py-2 lg:text-lg text-[12px]"
+              className="w-full lg:w-64 font-neue-corp-thin mt-6 px-3 lg:py-2 lg:text-lg text-[12px]"
             />
             <Button
               hasImage
@@ -102,14 +102,14 @@ const ContactPage = ({ scrollRotation }: Props) => {
                 )
               }
               text={"Instagram"}
-              className="w-44 lg:w-64 font-neue-corp-thin mt-6 px-3 lg:py-2 lg:text-lg text-[12px]"
+              className="w-full lg:w-64 font-neue-corp-thin mt-6 px-3 lg:py-2 lg:text-lg text-[12px]"
             />
           </div>
         </div>
-        <div className="pl-12 w-[70%] py-8">
+        <div className="lg:pl-12 lg:w-[70%] w-full py-8">
           <Paragraph
             text="How can we help ?"
-            className="font-neue-corp-bold text-lg lg:text-4xl text-[#1E1E1E]"
+            className="font-neue-corp-bold text-[2rem] text-center lg:text-left lg:text-4xl text-[#1E1E1E]"
           />
           <Formik
             initialValues={{

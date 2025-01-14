@@ -1,3 +1,4 @@
+import { MdArrowOutward } from "react-icons/md";
 import { footerNav } from "../../helper/const";
 import Divider from "../base/divider";
 import AnimatedLink from "../base/link";
@@ -45,37 +46,54 @@ const Footer = ({ onMouseEnter, onMouseLeave }: Props) => {
             GOT SOMETHING <br />
             IN YOUR MIND?
           </Paragraph>
-          <div className="hidden lg:flex mt-3 justify-start gap-2">
+          <div className="hidden lg:flex mt-3 justify-start gap-8">
             <a
               target="_blank"
+              className="flex cursor-none items-center"
               href="https://www.linkedin.com/company/mindsetlabid/"
             >
-              <img
+              <Paragraph
                 onMouseEnter={onMouseEnter}
                 onMouseLeave={onMouseLeave}
-                src="/linkedin_logo.svg"
-                className="w-10 h-10 cursor-none"
-              />
+                className="text-[#FAFAFA]"
+              >
+                Linkedin
+              </Paragraph>
+              <MdArrowOutward color="white" />
             </a>
-            <a target="_blank" href="https://www.instagram.com/mindsetlab.id/">
-              <img
+            <a
+              className="flex cursor-none items-center"
+              target="_blank"
+              href="https://www.instagram.com/mindsetlab.id/"
+            >
+              <Paragraph
                 onMouseEnter={onMouseEnter}
                 onMouseLeave={onMouseLeave}
-                src="/instagram_logo.svg"
-                className="w-10 h-10 cursor-none"
-              />
+                className="text-[#FAFAFA]"
+              >
+                Instagram
+              </Paragraph>
+              <MdArrowOutward color="white" />
             </a>
           </div>
         </div>
       </div>
 
       {/* MOBILE SOCIAL MEDIA ICON */}
-      <div className="flex lg:hidden mt-3 justify-end gap-2">
-        <a href="" className="transition-transform transform hover:scale-110">
-          <img src="/linkedin_logo.svg" className="w-8 h-8" />
+      <div className="grid lg:hidden mt-3 justify-end">
+        <a
+          href="https://www.linkedin.com/company/mindsetlabid/"
+          className="transition-transform transform flex items-center justify-end hover:scale-110"
+        >
+          <Paragraph className="text-[#FAFAFA]">Linkedin</Paragraph>
+          <MdArrowOutward color="white" />
         </a>
-        <a href="" className="transition-transform transform hover:scale-110">
-          <img src="/instagram_logo.svg" className="w-8 h-8" />
+        <a
+          href="https://www.instagram.com/mindsetlab.id/"
+          className="transition-transform flex items-center justify-end transform hover:scale-110"
+        >
+          <Paragraph className="text-[#FAFAFA]">Instagram</Paragraph>
+          <MdArrowOutward color="white" />
         </a>
       </div>
 
@@ -83,8 +101,8 @@ const Footer = ({ onMouseEnter, onMouseLeave }: Props) => {
       <div className="hidden lg:block">
         <Divider
           isHasText
-          textWidth="w-[12.5rem]"
-          text="© 2023 — Copyright"
+          textWidth="w-[35rem]"
+          text="All rights reserved, 2019 - 2025 | PT. Bingo Indonesia"
           scrollRotation={undefined}
         />
       </div>
@@ -93,7 +111,7 @@ const Footer = ({ onMouseEnter, onMouseLeave }: Props) => {
       <div className="mt-3 flex justify-between lg:hidden">
         <Paragraph
           size="mini"
-          text="© 2024 — Copyright"
+          text="All rights reserved, 2019 - 2025 | PT. Bingo Indonesia"
           className="text-[#FAFAFA] font-neue-corp-thin text-[10px]"
         />
         <Paragraph
