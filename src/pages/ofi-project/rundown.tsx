@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Paragraph from "../../components/base/paragraph";
 
 const OfiRundownPage = () => {
   const [cameraPermission, setCameraPermission] = useState("prompt");
@@ -81,16 +82,19 @@ const OfiRundownPage = () => {
           textAlign: "center",
         }}
       >
-        <p style={{ marginBottom: "20px" }}>
+        <Paragraph
+          className="text-[#fafafa] text-4xl font-neue-corp-regular"
+          style={{ marginBottom: "20px" }}
+        >
           This experience requires camera access to work.
-        </p>
+        </Paragraph>
         <button
           onClick={requestCameraAccess}
           style={{
             padding: "10px 20px",
-            backgroundColor: "#007bff",
-            color: "white",
-            border: "none",
+            backgroundColor: "#fafafa",
+            color: "#1e1e1e",
+            border: "1px solid #fafafa",
             borderRadius: "5px",
             cursor: "pointer",
           }}
@@ -105,6 +109,7 @@ const OfiRundownPage = () => {
     <div style={{ width: "100vw", height: "100vh", position: "relative" }}>
       {isLoading && (
         <div
+          className="text-[#fafafa] text-4xl font-neue-corp-regular"
           style={{
             position: "absolute",
             top: "50%",
