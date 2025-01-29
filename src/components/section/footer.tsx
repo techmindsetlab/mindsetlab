@@ -46,6 +46,8 @@ const Footer = ({ onMouseEnter, onMouseLeave }: Props) => {
             GOT SOMETHING <br />
             IN YOUR MIND?
           </Paragraph>
+
+          {/* DESKTOP SOCIAL MEDIA */}
           <div className="hidden lg:flex mt-3 justify-start gap-8">
             <a
               target="_blank"
@@ -60,7 +62,6 @@ const Footer = ({ onMouseEnter, onMouseLeave }: Props) => {
                 Linkedin
               </Paragraph>
               <MdArrowOutward color="white" />
-              {/* Border animation */}
               <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
             </a>
             <a
@@ -76,7 +77,6 @@ const Footer = ({ onMouseEnter, onMouseLeave }: Props) => {
                 Instagram
               </Paragraph>
               <MdArrowOutward color="white" />
-              {/* Border animation */}
               <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
             </a>
           </div>

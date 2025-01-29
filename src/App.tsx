@@ -13,6 +13,7 @@ import { workDetail } from "./@data/work-detail";
 import { works } from "./@data/works";
 import { home } from "./@data/home";
 import ContactPage from "./pages/contact";
+import OfiRundownPage from "./pages/ofi-project/rundown";
 
 const App: React.FC = () => {
   const [isHovered, setIsHovered] = useState<boolean>(false);
@@ -119,6 +120,14 @@ const App: React.FC = () => {
                 element={
                   <PageWrapper>
                     <ContactPage scrollRotation={scrollRotation} />
+                  </PageWrapper>
+                }
+              />
+              <Route
+                path="/project/ofi/countrymeet2025/rundown"
+                element={
+                  <PageWrapper>
+                    <OfiRundownPage />
                   </PageWrapper>
                 }
               />
