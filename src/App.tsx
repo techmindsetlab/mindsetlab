@@ -13,7 +13,9 @@ import { workDetail } from "./@data/work-detail";
 import { works } from "./@data/works";
 import { home } from "./@data/home";
 import ContactPage from "./pages/contact";
-import OfiRundownPage from "./pages/ofi-project/rundown";
+import Rundown from "./pages/ofi-project/rundown";
+import SafetyBriefing from "./pages/ofi-project/safety-briefing";
+import Speakers from "./pages/ofi-project/speakers";
 
 const App: React.FC = () => {
   const [isHovered, setIsHovered] = useState<boolean>(false);
@@ -135,7 +137,7 @@ const App: React.FC = () => {
                 path="/project/ofi/countrymeet2025/rundown"
                 element={
                   <PageWrapper>
-                    <OfiRundownPage />
+                    <Rundown />
                   </PageWrapper>
                 }
               />
@@ -143,7 +145,7 @@ const App: React.FC = () => {
                 path="/project/ofi/countrymeet2025/safety-briefing"
                 element={
                   <PageWrapper>
-                    <OfiRundownPage />
+                    <SafetyBriefing />
                   </PageWrapper>
                 }
               />
@@ -151,16 +153,18 @@ const App: React.FC = () => {
                 path="/project/ofi/countrymeet2025/speakers"
                 element={
                   <PageWrapper>
-                    <OfiRundownPage />
+                    <Speakers />
                   </PageWrapper>
                 }
               />
             </Routes>
           </AnimatePresence>
-          <Footer
-            onMouseEnter={() => setIsLink(true)}
-            onMouseLeave={() => setIsLink(false)}
-          />
+          {!isNavbarHidden && (
+            <Footer
+              onMouseEnter={() => setIsLink(true)}
+              onMouseLeave={() => setIsLink(false)}
+            />
+          )}
         </div>
       )}
     </div>
