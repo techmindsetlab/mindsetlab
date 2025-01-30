@@ -26,13 +26,13 @@ const OFI3DRendering = ({ iframeSrc }: { iframeSrc: string }) => {
   }, []);
 
   useEffect(() => {
-    if (cameraPermission === "granted" && iframeSrc) {
-      window.location.href = iframeSrc;
-    }
     setTimeout(() => {
       setIsLoading(false);
-    }, 3000);
-  }, [cameraPermission, iframeSrc]);
+    }, 7000);
+    if (cameraPermission === "granted" && iframeSrc && !isLoading) {
+      window.location.href = iframeSrc;
+    }
+  }, [cameraPermission, iframeSrc, isLoading]);
 
   const requestCameraAccess = async () => {
     try {
@@ -114,7 +114,7 @@ const OFI3DRendering = ({ iframeSrc }: { iframeSrc: string }) => {
     <div style={{ width: "100vw", height: "100vh", position: "relative" }}>
       {isLoading && (
         <div
-          className="text-[#fafafa] text-4xl font-neue-corp-regular"
+          className="text-[#fafafa] text-2xl lg:text-4xl text-center font-neue-corp-regular"
           style={{
             position: "absolute",
             top: "50%",
