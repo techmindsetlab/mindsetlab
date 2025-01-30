@@ -85,7 +85,7 @@ const OfiRundownPage = () => {
         }}
       >
         <Paragraph
-          className="text-[#fafafa] text-4xl font-neue-corp-regular"
+          className="text-[#fafafa] text-2xl text-center lg:text-4xl font-neue-corp-regular"
           style={{ marginBottom: "20px" }}
         >
           This experience requires camera access to work.
