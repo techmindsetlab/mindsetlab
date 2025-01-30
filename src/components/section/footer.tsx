@@ -67,7 +67,7 @@ const Footer = ({ onMouseEnter, onMouseLeave }: Props) => {
             <a
               target="_blank"
               className="group flex cursor-none items-center relative"
-              href="https://www.instagram.com/mindsetlab.id/"
+              href="https://www.instagram.com/mindsetlabid/"
             >
               <Paragraph
                 onMouseEnter={onMouseEnter}
