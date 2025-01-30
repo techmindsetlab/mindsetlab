@@ -25,17 +25,22 @@ const OFI3DRendering = ({ iframeSrc }: { iframeSrc: string }) => {
     checkCameraPermission();
   }, []);
 
+  useEffect(() => {
+    if (cameraPermission === "granted" && iframeSrc) {
+      window.location.href = iframeSrc;
+    }
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+  }, [cameraPermission, iframeSrc]);
+
   const requestCameraAccess = async () => {
     try {
       await navigator.mediaDevices.getUserMedia({ video: true });
-      window.location.href = iframeSrc;
+      setCameraPermission("granted");
     } catch (error) {
-      setError(error as string);
+      setError(error instanceof Error ? error.message : "Unknown error");
     }
-  };
-
-  const handleIframeLoad = () => {
-    setIsLoading(false);
   };
 
   if (error) {
@@ -120,19 +125,6 @@ const OFI3DRendering = ({ iframeSrc }: { iframeSrc: string }) => {
           Loading 8th Wall Experience...
         </div>
       )}
-      <iframe
-        src={iframeSrc}
-        style={{
-          width: "100%",
-          height: "100%",
-          border: "none",
-          position: "absolute",
-          top: 0,
-          left: 0,
-        }}
-        onLoad={handleIframeLoad}
-        allow="camera; gyroscope; accelerometer; xr-spatial-tracking"
-      />
     </div>
   );
 };
