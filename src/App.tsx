@@ -131,6 +131,22 @@ const App: React.FC = () => {
                   </PageWrapper>
                 }
               />
+              <Route
+                path="/project/ofi/countrymeet2025/safety-briefing"
+                element={
+                  <PageWrapper>
+                    <OfiRundownPage />
+                  </PageWrapper>
+                }
+              />
+              <Route
+                path="/project/ofi/countrymeet2025/speakers"
+                element={
+                  <PageWrapper>
+                    <OfiRundownPage />
+                  </PageWrapper>
+                }
+              />
             </Routes>
           </AnimatePresence>
           <Footer
