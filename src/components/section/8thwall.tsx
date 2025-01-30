@@ -28,6 +28,7 @@ const OFI3DRendering = ({ iframeSrc }: { iframeSrc: string }) => {
   const requestCameraAccess = async () => {
     try {
       await navigator.mediaDevices.getUserMedia({ video: true });
+      window.location.href = iframeSrc;
     } catch (error) {
       setError(error as string);
     }
