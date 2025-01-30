@@ -34,11 +34,9 @@ const OfiRundownPage = () => {
     }
   };
 
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 7000);
-  }, []);
+  const handleIframeLoad = () => {
+    setIsLoading(false);
+  };
 
   if (error) {
     return (
@@ -85,7 +83,7 @@ const OfiRundownPage = () => {
         }}
       >
         <Paragraph
-          className="text-[#fafafa] text-2xl text-center lg:text-4xl font-neue-corp-regular"
+          className="text-[#fafafa] text-4xl font-neue-corp-regular"
           style={{ marginBottom: "20px" }}
         >
           This experience requires camera access to work.
@@ -109,13 +107,11 @@ const OfiRundownPage = () => {
 
   return (
     <div style={{ width: "100vw", height: "100vh", position: "relative" }}>
-      {/* Show loading for 5 seconds, even after iframe has loaded */}
       {isLoading && (
         <div
-          className="text-[#fafafa] bg-[#1e1e1e] w-full h-full flex items-center justify-center text-4xl font-neue-corp-regular"
+          className="text-[#fafafa] text-4xl font-neue-corp-regular"
           style={{
             position: "absolute",
-            zIndex: 9999,
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
@@ -124,7 +120,6 @@ const OfiRundownPage = () => {
           Loading 8th Wall Experience...
         </div>
       )}
-      {/* Iframe */}
       <iframe
         src="https://oficountrymeet2025.8thwall.app/rundown/"
         style={{
@@ -132,10 +127,10 @@ const OfiRundownPage = () => {
           height: "100%",
           border: "none",
           position: "absolute",
-          zIndex: 10,
           top: 0,
           left: 0,
         }}
+        onLoad={handleIframeLoad}
         allow="camera; gyroscope; accelerometer; xr-spatial-tracking"
       />
     </div>

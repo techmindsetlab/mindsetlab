@@ -67,13 +67,21 @@ const App: React.FC = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  const hideNavbarPaths = [
+    "/project/ofi/countrymeet2025/rundown",
+    "/project/ofi/countrymeet2025/safety-briefing",
+    "/project/ofi/countrymeet2025/speakers",
+  ];
+
+  const isNavbarHidden = hideNavbarPaths.includes(location.pathname);
+
   return (
     <div>
       {loading ? (
         <LoadingScreen />
       ) : (
         <div>
-          <Navbar setIsLink={setIsLink} />
+          {!isNavbarHidden && <Navbar setIsLink={setIsLink} />}
           <Cursor isLink={isLink} isHovered={isHovered} />
           <AnimatePresence mode="sync">
             <Routes location={location} key={location.key}>
