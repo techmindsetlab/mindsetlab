@@ -16,6 +16,7 @@ import ContactPage from "./pages/contact";
 import Rundown from "./pages/ofi-project/rundown";
 import SafetyBriefing from "./pages/ofi-project/safety-briefing";
 import Speakers from "./pages/ofi-project/speakers";
+import Questionnaire from "./pages/ofi-project/questionnaire";
 
 const App: React.FC = () => {
   const [isHovered, setIsHovered] = useState<boolean>(false);
@@ -73,6 +74,7 @@ const App: React.FC = () => {
     "/project/ofi/countrymeet2025/rundown",
     "/project/ofi/countrymeet2025/safety-briefing",
     "/project/ofi/countrymeet2025/speakers",
+    "/project/ofi/countrymeet2025/questionnaire"
   ];
 
   const isNavbarHidden = hideNavbarPaths.includes(location.pathname);
@@ -154,6 +156,14 @@ const App: React.FC = () => {
                 element={
                   <PageWrapper>
                     <Speakers />
+                  </PageWrapper>
+                }
+              />
+              <Route
+                path="/project/ofi/countrymeet2025/questionnaire"
+                element={
+                  <PageWrapper>
+                    <Questionnaire />
                   </PageWrapper>
                 }
               />
