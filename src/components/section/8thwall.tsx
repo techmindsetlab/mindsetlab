@@ -11,6 +11,21 @@ const OFI3DRendering = ({ iframeSrc }: { iframeSrc: string }) => {
     return () => clearTimeout(timer); // Cleanup on component unmount
   }, []);
 
+  // Function to request camera access (if necessary)
+  const requestCameraAccess = async () => {
+    try {
+      // Request access to camera and microphone
+      await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+    } catch (error) {
+      console.error("Error accessing camera:", error);
+    }
+  };
+
+  useEffect(() => {
+    // Request camera access when component is mounted
+    requestCameraAccess();
+  }, []);
+
   return (
     <div style={{ width: "100vw", height: "100vh", position: "relative" }}>
       {isLoading && (
@@ -31,6 +46,7 @@ const OFI3DRendering = ({ iframeSrc }: { iframeSrc: string }) => {
           src={iframeSrc}
           style={{ width: "100%", height: "100%", border: "none" }}
           title="3D Experience"
+          allow="camera; microphone; accelerometer; gyroscope" // Allow camera access here
         ></iframe>
       )}
     </div>
