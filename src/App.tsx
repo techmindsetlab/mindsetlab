@@ -144,7 +144,7 @@ const App: React.FC = () => {
                 }
               />
               <Route
-                path="/project/ofi/countrymeet2025/safety-briefing"
+                path="/project/ofi/countrymeet2025/safety"
                 element={
                   <PageWrapper>
                     <SafetyBriefing />
