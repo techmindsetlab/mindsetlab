@@ -23,7 +23,8 @@ const QuestionnaireSection = () => {
                 Q&A Country Meet 2025
             </Link>
             <Link
-                to="https://interprefy.interpret.world/loginlink?token=ofimeeting"
+                // to="https://interprefy.interpret.world/loginlink?token=ofimeeting"
+                to="https://interprefy.interpret.world/loginlink?token=ofimeeting&eventName=OFI%20Country%20Meet%202025&skipMobileLanding=true"
                 className="cursor-none bg-white rounded-md p-4 mb-3 border w-full text-center"
             >
                 Audio Translation
