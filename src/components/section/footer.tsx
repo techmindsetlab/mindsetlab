@@ -11,9 +11,9 @@ interface Props {
 
 const Footer = ({ onMouseEnter, onMouseLeave }: Props) => {
   return (
-    <div className="px-5 lg:px-12 pb-1">
+    <div className="px-5 lg:px-12 pb-1 pt-10">
       <div className="flex mb-12 justify-between">
-        <div className="grid grid-cols-1 lg:w-[60%] w-full lg:grid-cols-2">
+        <div className="grid grid-cols-1 lg:w-[60%] w-full lg:grid-cols-3">
           {footerNav.map((item, index) => (
             <div className="mt-8" key={index}>
               <div className="flex gap-2 items-center">
@@ -41,7 +41,7 @@ const Footer = ({ onMouseEnter, onMouseLeave }: Props) => {
             </div>
           ))}
         </div>
-        <div className="lg:w-[40%] hidden lg:block mt-8">
+        <div className="lg:w-[35%] hidden lg:block mt-8">
           <Paragraph size="ultra" className="text-[#FAFAFA] leading-[3.5rem]">
             GOT SOMETHING <br />
             IN YOUR MIND?

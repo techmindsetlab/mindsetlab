@@ -97,7 +97,7 @@ const ContactPage = ({ scrollRotation }: Props) => {
               imgSrc="/instagram_logo.svg"
               onClick={() =>
                 window.open(
-                  "https://www.instagram.com/mindsetlab.id/",
+                  "https://www.instagram.com/mindsetlabid/",
                   "_blank"
                 )
               }

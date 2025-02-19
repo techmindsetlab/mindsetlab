@@ -52,7 +52,7 @@ const Dropdown: React.FC<DropdownProps> = ({
         exit={{ opacity: 0, y: -20 }}
         transition={{ duration: 0.3 }}
         className={`absolute  ${
-          isForm ? "w-full left-0 top-14" : "left-4 w-48 top-10"
+          isForm ? "w-full left-0 top-14" : "left-0 w-48 top-10"
         }  bg-[#333333] text-white rounded-md  shadow-lg`}
         style={{ zIndex: 10 }}
       >

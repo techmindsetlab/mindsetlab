@@ -33,7 +33,7 @@ const Navbar = ({ setIsLink }: Props) => {
   }, []);
 
   return (
-    <header className="sticky z-10 top-0">
+    <header className="sticky z-40 top-0">
       {/* DESKTOP NAVBAR */}
       <nav
         aria-label="Global"

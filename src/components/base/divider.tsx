@@ -36,7 +36,7 @@ const Divider = ({
       <div className="border h-fit w-full" />
       {isHasText && (
         <Paragraph
-          className={`${textWidth} text-[12px] font-neue-corp-thin text-[#fafafa] w-fit ml-2`}
+          className={`${textWidth} text-[12px] font-neue-corp-thin text-[#fafafa] ml-2`}
         >
           {text}
         </Paragraph>

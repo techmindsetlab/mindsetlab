@@ -3,7 +3,7 @@ import { IoIosArrowForward } from "react-icons/io";
 type ButtonSize = "extrasmall" | "small" | "medium" | "large";
 
 interface ButtonProps {
-  text: string;
+  text: string | React.ReactNode;
   onClick?: () => void;
   size?: ButtonSize;
   disabled?: boolean;
@@ -26,7 +26,7 @@ const Button: React.FC<ButtonProps> = ({
   className = "",
   hasImage = false,
   imgSrc,
-  type
+  type,
 }) => {
   const baseStyle = "rounded font-bold focus:outline-none";
 

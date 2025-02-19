@@ -26,15 +26,15 @@ export const worksCategory = ["All Works", "Social Media", "Campaign", "Website 
 export const needs = ["Social Media", "Campaign", "Website Development", "VR Website", "etc."]
 
 export const footerNav = [
-    {
-        navigation: "WORK",
-        subnavigation: [
-            { name: "Production Campaign", href: "" },
-            { name: "Social Media", href: "" },
-            { name: "Company Profile", href: "" },
-            { name: "Virtual Website", href: "" },
-        ],
-    },
+    // {
+    //     navigation: "WORK",
+    //     subnavigation: [
+    //         { name: "Production Campaign", href: "" },
+    //         { name: "Social Media", href: "" },
+    //         { name: "Company Profile", href: "" },
+    //         { name: "Virtual Website", href: "" },
+    //     ],
+    // },
     {
         navigation: "SERVICE",
         subnavigation: [
@@ -45,7 +45,7 @@ export const footerNav = [
     {
         navigation: "ABOUT",
         subnavigation: [
-            { name: "Stories & Culture", href: "" },
+            { name: "Stories & Culture", href: "/stories-and-culture" },
             { name: "The Teams", href: "" },
         ],
     },

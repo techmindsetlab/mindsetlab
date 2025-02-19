@@ -5,6 +5,7 @@ import Title from "../base/title";
 import { motion } from "framer-motion";
 import ContactSVG from "../../animation/contact-header";
 import { getImagePosition } from "../../helper/getImagePosition";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
   scrollRotation: number;
@@ -19,6 +20,11 @@ const Contact = ({
 }: Props) => {
   const [isDesktop, setIsDesktop] = useState(false);
   const scrollIndicator = 2600;
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/contact");
+  };
 
   useEffect(() => {
     const handleResize = () => {
@@ -73,6 +79,7 @@ const Contact = ({
       />
 
       <Button
+        onClick={() => handleClick()}
         text={"In Case You Missed It"}
         className="w-44 lg:w-64 font-neue-corp-thin mt-6 px-3 lg:py-2 lg:text-lg text-[12px]"
         isEnabledArrow
