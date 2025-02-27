@@ -10,7 +10,7 @@ interface WrapperAnimationProps {
   delay?: number;
 }
 
-const WrapperAnimation: React.FC<WrapperAnimationProps> = ({
+const BottomAnimation: React.FC<WrapperAnimationProps> = ({
   children,
   initialY = 200,
   duration = 1.5,
@@ -37,4 +37,4 @@ const WrapperAnimation: React.FC<WrapperAnimationProps> = ({
   );
 };
 
-export default WrapperAnimation;
+export default BottomAnimation;

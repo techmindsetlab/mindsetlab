@@ -13,6 +13,7 @@ import { workDetail } from "./@data/work-detail";
 import { works } from "./@data/works";
 import { home } from "./@data/home";
 import ContactPage from "./pages/contact";
+import StoriesAndCulture from "./pages/stories-and-culture";
 import Rundown from "./pages/ofi-project/rundown";
 import SafetyBriefing from "./pages/ofi-project/safety-briefing";
 import Speakers from "./pages/ofi-project/speakers";
@@ -74,7 +75,7 @@ const App: React.FC = () => {
     "/project/ofi/countrymeet2025/rundown",
     "/project/ofi/countrymeet2025/safety-briefing",
     "/project/ofi/countrymeet2025/speakers",
-    "/project/ofi/countrymeet2025/questionnaire"
+    "/project/ofi/countrymeet2025/questionnaire",
   ];
 
   const isNavbarHidden = hideNavbarPaths.includes(location.pathname);
@@ -124,6 +125,14 @@ const App: React.FC = () => {
                       scrollRotation={scrollRotation}
                       workData={workDetail}
                     />
+                  </PageWrapper>
+                }
+              />
+              <Route
+                path="/stories-and-culture"
+                element={
+                  <PageWrapper>
+                    <StoriesAndCulture scrollRotation={scrollRotation} />
                   </PageWrapper>
                 }
               />

@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import BottomAnimation from "../../animation/from-bottom";
 import Button from "../base/button";
 import Paragraph from "../base/paragraph";
@@ -10,6 +11,7 @@ interface Props {
 }
 
 const Header = ({ scrollRotation, scale }: Props) => {
+  const navigate = useNavigate();
   return (
     <div>
       {/* HEADER LOGO */}
@@ -118,6 +120,7 @@ const Header = ({ scrollRotation, scale }: Props) => {
               Ready to get started? Reach out—we’re just a message away!
             </Paragraph>
             <Button
+              onClick={() => navigate("/contact")}
               size="extrasmall"
               isEnabledArrow
               className="w-full lg:text-xl text-[14px] font-neue-corp-thin lg:py-3 lg:mb-3 py-2"
