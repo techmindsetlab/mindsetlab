@@ -29,7 +29,7 @@ const ClientSlider = ({ client }: { client: ClientType[] }) => {
   };
 
   return (
-    <Slider className="px-6  h-full" {...settings}>
+    <Slider className="px-2 h-full" {...settings}>
       {client.map((item, idx) => (
         <div key={idx} className="px-2 w-full lg:px-4">
           <div className="bg-gradient-to-br w-full from-[#FFDD00]/10 via-white/20 to-[#FE00BF]/10 backdrop-blur-lg rounded-[16px] shadow-md grid items-center justify-center h-full">
