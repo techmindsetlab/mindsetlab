@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Button from "../base/button";
 import Paragraph from "../base/paragraph";
 import Title from "../base/title";
@@ -6,21 +6,68 @@ import { motion } from "framer-motion";
 import ContactSVG from "../../animation/contact-header";
 import { getImagePosition } from "../../helper/getImagePosition";
 import { useNavigate } from "react-router-dom";
+import { IoIosArrowForward } from "react-icons/io";
+import gsap from "gsap";
+import { TextPlugin } from "gsap/TextPlugin";
+gsap.registerPlugin(TextPlugin);
 
 interface Props {
   scrollRotation: number;
   isScrollable?: boolean;
   typography: string;
+  isAboutPage?: boolean;
 }
+const dummy = ["project", "success", "idea"];
+const CHARS = "abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";
 
 const Contact = ({
   scrollRotation,
   isScrollable = true,
   typography,
+  isAboutPage = false,
 }: Props) => {
   const [isDesktop, setIsDesktop] = useState(false);
+  const textRef = useRef<HTMLDivElement>(null);
+  const [index, setIndex] = useState(0);
   const scrollIndicator = 2600;
   const navigate = useNavigate();
+
+  const scrambleTo = (target: string) => {
+    const totalFrames = 20;
+    let frame = 0;
+
+    const scramble = () => {
+      const output = target
+        .split("")
+        .map((char, i) => {
+          if (i < Math.floor((frame / totalFrames) * target.length)) {
+            return char;
+          } else {
+            return CHARS[Math.floor(Math.random() * CHARS.length)];
+          }
+        })
+        .join("");
+
+      if (textRef.current) textRef.current.textContent = output;
+
+      frame++;
+      if (frame <= totalFrames) {
+        requestAnimationFrame(scramble);
+      }
+    };
+
+    scramble();
+  };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const nextIndex = (index + 1) % dummy.length;
+      setIndex(nextIndex);
+      scrambleTo(dummy[nextIndex]);
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, [index]);
 
   const handleClick = () => {
     navigate("/contact");
@@ -77,6 +124,34 @@ const Contact = ({
         text={typography}
         className="text-[#1e1e1e] lg:text-3xl text-2xl w-[80%]"
       />
+      {isAboutPage && (
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          transition={{
+            duration: 1.2,
+            ease: "easeOut",
+          }}
+          viewport={{ once: true, amount: 0.2 }}
+          className="flex gap-2 items-center"
+        >
+          <Paragraph
+            text="next"
+            size="xxl"
+            className="text-[#1e1e1e] w-fit lg:text-3xl text-2xl"
+          />
+          <IoIosArrowForward color="#1E1E1E" size={25} />
+          <div
+            ref={textRef}
+            className="text-[#1e1e1e] w-fit lg:text-3xl text-2xl font-neue-machina-regular"
+          >
+            {dummy[0]}
+          </div>
+        </motion.div>
+      )}
 
       <Button
         onClick={() => handleClick()}

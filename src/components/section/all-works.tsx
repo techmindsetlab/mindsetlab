@@ -53,14 +53,14 @@ const WorksCard = ({ data, onMouseEnter, onMouseLeave }: Props) => {
           >
             {/* DESKTOP VERSION */}
             <div
-              className="w-full absolute h-full rounded-[15px] lg:block hidden transition-all duration-700 ease-in-out opacity-0 group-hover:opacity-100 group-hover:scale-100 group-hover:blur-0 scale-95 blur-sm"
+              className="w-full absolute h-full rounded-[15px] lg:block hidden transition-all duration-700 ease-in-out"
               style={{
                 backgroundImage: `url(${item.banner.image.url})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
               }}
             >
-              <div className="absolute inset-0 bg-[#1e1e1e] opacity-80 rounded-[15px] transition-opacity duration-700 group-hover:opacity-80"></div>
+              <div className="absolute inset-0 bg-[#1e1e1e] opacity-40 rounded-[15px] transition-opacity duration-700 group-hover:opacity-20"></div>
             </div>
 
             {/* MOBILE VERSION */}
@@ -73,7 +73,7 @@ const WorksCard = ({ data, onMouseEnter, onMouseLeave }: Props) => {
             </div>
 
             <div className="w-full z-10 flex items-center justify-between gap-4 py-10">
-              <h2 className="lg:text-4xl w-[50%] text-2xl font-neue-corp-bold font-bold text-white">
+              <h2 className="lg:text-4xl w-[50%] text-2xl font-neue-machina-bold text-white">
                 {item.title}
               </h2>
               <p className="lg:text-[12px] text-[8px] h-fit lg:px-4 px-2 py-0.5 lg:py-1 text-lg font-neue-corp-thin text-[#FAFAFA] border border-[#FAFAFA] rounded-lg">

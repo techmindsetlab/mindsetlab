@@ -87,7 +87,7 @@ const MasonryGrid = ({
 
                 <Paragraph
                   size="xxl"
-                  className="text-[#FAFAFA] font-neue-corp-bold transform translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500"
+                  className="text-[#FAFAFA] font-neue-machina-bold transform translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500"
                 >
                   {item.name}
                 </Paragraph>
