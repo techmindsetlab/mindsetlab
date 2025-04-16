@@ -45,7 +45,7 @@ export const footerNav = [
     {
         navigation: "ABOUT",
         subnavigation: [
-            { name: "Stories & Culture", href: "/stories-and-culture" },
+            { name: "Stories & Culture", href: "/about-us" },
             { name: "The Teams", href: "" },
         ],
     },
