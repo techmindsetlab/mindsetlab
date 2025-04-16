@@ -8,6 +8,8 @@ import Contact from "../components/section/contact-section";
 
 interface Props {
   scrollRotation: number;
+  setIsHovered: (isHovered: boolean) => void;
+  setIsHoverImage: (isHoverImage: string | undefined) => void;
 }
 
 const dummy = [
@@ -41,32 +43,33 @@ const dummy = [
   },
 ];
 
-const StoriesAndCulture = ({ scrollRotation }: Props) => {
+const StoriesAndCulture = ({ scrollRotation, setIsHovered, setIsHoverImage }: Props) => {
   return (
     <div className="mt-20">
-      <div className="lg:px-12 px-5">
-        <BottomAnimation duration={1}>
-          <img src="/stories_header.svg" className="w-full h-full" />
-        </BottomAnimation>
+      <div>
+        <div className="lg:px-12 px-5">
+          <BottomAnimation duration={1}>
+            <img src="/stories_header.svg" className="w-full h-full" />
+          </BottomAnimation>
 
-        <div className="flex z-10 relative lg:-my-[5.5rem] -my-[2rem] justify-center">
-          <BottomAnimation>
-            <img
-              src="/and_icon.svg"
-              className="w-[4rem] lg:w-[10rem] z-40 h-full"
-            />
+          <div className="flex z-10 relative lg:-my-[5.5rem] -my-[2rem] justify-center">
+            <BottomAnimation>
+              <img
+                src="/and_icon.svg"
+                className="w-[4rem] lg:w-[10rem] z-40 h-full"
+              />
+            </BottomAnimation>
+          </div>
+          <BottomAnimation duration={1.2}>
+            <img src="/culture_header.svg" className="w-full h-full" />
           </BottomAnimation>
         </div>
-        <BottomAnimation duration={1.2}>
-          <img src="/culture_header.svg" className="w-full h-full" />
-        </BottomAnimation>
+        <div className="lg:px-12 px-5">
+          <Divider scrollRotation={scrollRotation} />
+        </div>
       </div>
-      <div className="lg:px-12 px-5">
-        <Divider scrollRotation={scrollRotation} />
-      </div>
-
-      {/* VIDEO PLAYER */}
-      <div className="px-5 lg:px-12 rounded-md overflow-hidden">
+      <div>
+        {/* VIDEO PLAYER */}
         <video
           src="/dummy_video.mp4"
           className="w-full h-auto rounded-md"
@@ -80,7 +83,7 @@ const StoriesAndCulture = ({ scrollRotation }: Props) => {
       {/* ABOUT SECTION */}
       <AboutDescription />
       <PeopleAndCulture data={dummy} />
-      <Capabilities />
+      <Capabilities setHoverImage={setIsHoverImage} setIsHovered={setIsHovered} />
       <MainCharacter />
       <div className="mt-12">
         <Contact

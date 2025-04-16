@@ -17,7 +17,7 @@ interface Props {
   typography: string;
   isAboutPage?: boolean;
 }
-const dummy = ["project", "success", "idea"];
+const character = ["project", "success", "idea"];
 const CHARS = "abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";
 
 const Contact = ({
@@ -61,9 +61,9 @@ const Contact = ({
 
   useEffect(() => {
     const interval = setInterval(() => {
-      const nextIndex = (index + 1) % dummy.length;
+      const nextIndex = (index + 1) % character.length;
       setIndex(nextIndex);
-      scrambleTo(dummy[nextIndex]);
+      scrambleTo(character[nextIndex]);
     }, 2000);
 
     return () => clearInterval(interval);
@@ -141,14 +141,14 @@ const Contact = ({
           <Paragraph
             text="next"
             size="xxl"
-            className="text-[#1e1e1e] w-fit lg:text-3xl text-2xl"
+            className="text-[#1e1e1e] lg:-mt-4 w-fit lg:text-3xl text-2xl"
           />
-          <IoIosArrowForward color="#1E1E1E" size={25} />
+          <IoIosArrowForward color="#1E1E1E" className="lg:-mt-4" size={25} />
           <div
             ref={textRef}
-            className="text-[#1e1e1e] w-fit lg:text-3xl text-2xl font-neue-machina-regular"
+            className="text-[#1e1e1e] lg:-mt-4 w-fit lg:text-3xl text-2xl font-neue-machina-regular"
           >
-            {dummy[0]}
+            {character[0]}
           </div>
         </motion.div>
       )}

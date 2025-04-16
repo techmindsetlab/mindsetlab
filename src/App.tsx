@@ -21,6 +21,7 @@ import Questionnaire from "./pages/ofi-project/questionnaire";
 
 const App: React.FC = () => {
   const [isHovered, setIsHovered] = useState<boolean>(false);
+  const [hoverImage, setHoverImage] = useState<string | undefined>(undefined);
   const [isLink, setIsLink] = useState<boolean>(false);
   const [loading, setLoading] = useState(true);
   const [scale, setScale] = useState(1);
@@ -87,7 +88,11 @@ const App: React.FC = () => {
       ) : (
         <div>
           {!isNavbarHidden && <Navbar setIsLink={setIsLink} />}
-          <Cursor isLink={isLink} isHovered={isHovered} />
+          <Cursor
+            isLink={isLink}
+            hoverImage={hoverImage}
+            isHovered={isHovered}
+          />
           <AnimatePresence mode="sync">
             <Routes location={location} key={location.key}>
               <Route
@@ -129,10 +134,14 @@ const App: React.FC = () => {
                 }
               />
               <Route
-                path="/stories-and-culture"
+                path="/about-us"
                 element={
                   <PageWrapper>
-                    <StoriesAndCulture scrollRotation={scrollRotation} />
+                    <StoriesAndCulture
+                      setIsHoverImage={setHoverImage}
+                      setIsHovered={setIsHovered}
+                      scrollRotation={scrollRotation}
+                    />
                   </PageWrapper>
                 }
               />

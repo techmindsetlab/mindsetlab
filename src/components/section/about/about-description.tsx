@@ -53,7 +53,7 @@ const AboutDescription = () => {
           <Paragraph
             style={{ lineHeight: "1.2" }}
             size="ultra"
-            className="text-[#FAFAFA] lg:text-[6.8rem] line leading-[2.5rem] text-[3rem]"
+            className="text-[#FAFAFA] lg:text-[6.8rem] line leading-[2rem] text-[3rem]"
           >
             Plug & Play, or Custom Built.
           </Paragraph>
