@@ -6,7 +6,7 @@ const capabilities = [
   {
     category: "Strategy",
     item: [
-      { name: "Brand Definition", image: "https://www.dummyimage.com/300" },
+      { name: "Brand Definition", image: "/brand_definition.png" },
       { name: "Customer Insight", image: "https://www.dummyimage.com/300" },
       { name: "Messaging", image: "https://www.dummyimage.com/300" },
       { name: "Verbal Identity", image: "https://www.dummyimage.com/300" },
