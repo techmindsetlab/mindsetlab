@@ -31,7 +31,7 @@ export interface Attributes {
     campaignHighlight: CampaignHighlight
     campaignLandscapeMedia: CampaignLandscapeMedia
     campaignPortraitMedia: CampaignPortraitMedia
-    engagement: unknown
+    engagement: Engagement
 }
 
 export interface ScopeOfWork {
@@ -165,7 +165,7 @@ export interface ProviderMetadata5 {
 }
 
 export interface HighlightVideo {
-    data: Daum[]
+    data: Daum
 }
 
 export interface Daum {
@@ -555,6 +555,17 @@ export interface ProviderMetadata21 {
 
 export interface CampaignPortraitMedia {
     data: Data4
+}
+
+export interface Engagement {
+    title: string;
+    description: string;
+    data: {
+        id: number;
+        value: number;
+        text: string;
+        type: "Percentage" | "Number"
+    }[]
 }
 
 export interface Data4 {

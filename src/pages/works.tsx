@@ -4,36 +4,49 @@ import Divider from "../components/base/divider";
 import Dropdown from "../components/base/dropdown";
 import Paragraph from "../components/base/paragraph";
 import WorksCard from "../components/section/all-works";
-import { worksCategory } from "../helper/const";
+import { endpoints, worksCategory } from "../helper/const";
 import { motion } from "motion/react";
 import Contact from "../components/section/contact-section";
-import { WorksList } from "../types/works";
+import useSWR from "swr";
+import { fetcher } from "../services/fetcher";
+import { WorksResponse } from "../types/response";
 
 interface Props {
   onMouseEnter?: React.MouseEventHandler<HTMLParagraphElement>;
   onMouseLeave?: React.MouseEventHandler<HTMLParagraphElement>;
   scale: number;
   scrollRotation: number;
-  data: WorksList[];
 }
 
 const Works = ({
   onMouseLeave,
   onMouseEnter,
   scale,
-  data,
   scrollRotation,
 }: Props) => {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+
+  const { data, error, isLoading } = useSWR<WorksResponse>(
+    `${import.meta.env.VITE_API_BASE_URL}${endpoints.WORKS_PAGE}`,
+    fetcher,
+    {
+      dedupingInterval: 1000 * 60 * 10,
+      revalidateOnFocus: false,
+      revalidateOnReconnect: false,
+    }
+  );
 
   const handleSelect = (option: string) => {
     setSelectedCategory(option);
   };
 
+  if (isLoading) return <div className="px-5 lg:px-12">Loading works...</div>;
+  if (error) return <div className="px-5 lg:px-12">Failed to load works</div>;
+
   const filteredWorksData =
     selectedCategory && selectedCategory !== "All Works"
-      ? data.filter((item) => item.category === selectedCategory)
-      : data;
+      ? data?.data.filter((item) => item.category === selectedCategory)
+      : data?.data;
 
   return (
     <div className="max-w-full mx-auto">
@@ -113,7 +126,7 @@ const Works = ({
           <WorksCard
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
-            data={filteredWorksData}
+            data={filteredWorksData || []}
           />
         </motion.div>
       </div>

@@ -1,19 +1,34 @@
+import useSWR from 'swr';
 import Header from "../components/section/header-section";
 import Divider from "../components/base/divider";
 import Works from "../components/section/works-section";
 import About from "../components/section/about-section";
 import Service from "../components/section/service-section";
 import Contact from "../components/section/contact-section";
-import { WorksList } from "../types/home";
+import { fetcher } from '../services/fetcher';
+import { HomeResponse } from '../types/response';
+import { endpoints } from '../helper/const';
 
 interface Props {
   setIsHovered: (isHovered: boolean) => void;
   scrollRotation: number;
   scale: number;
-  data: WorksList[];
 }
 
-const Home = ({ setIsHovered, scrollRotation, scale, data }: Props) => {
+const Home = ({ setIsHovered, scrollRotation, scale }: Props) => {
+  const { data, error, isLoading } = useSWR<HomeResponse>(
+    `${import.meta.env.VITE_API_BASE_URL}${endpoints.HOME_PAGE}`,
+    fetcher,
+    {
+      dedupingInterval: 1000 * 60 * 10,
+      revalidateOnFocus: false,
+      revalidateOnReconnect: false,
+    }
+  );
+
+  if (isLoading) return <div className="px-5 lg:px-12">Loading works...</div>;
+  if (error) return <div className="px-5 lg:px-12">Failed to load works</div>;
+
   return (
     <div>
       <div className="lg:px-12 px-5">
@@ -23,7 +38,7 @@ const Home = ({ setIsHovered, scrollRotation, scale, data }: Props) => {
           scrollRotation={scrollRotation}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
-          data={data}
+          data={data?.data.works || []}
         />
       </div>
       <div>

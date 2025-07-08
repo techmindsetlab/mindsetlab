@@ -16,6 +16,14 @@ export interface WorksDataProps {
     socmedImg: string[];
 }
 
+/**
+ * Endpoint Strings for Request
+ */
+export const endpoints = {
+    HOME_PAGE: '/home?populate=works.banner.image&populate=works.banner.thumbnail',
+    WORKS_PAGE: '/works?populate=banner.image',
+}
+
 export const navigation = [
     { name: "works", href: "/works" },
     // { name: "about", href: "#" },

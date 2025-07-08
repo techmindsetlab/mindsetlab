@@ -9,9 +9,6 @@ import Cursor from "./components/base/cursor";
 import LoadingScreen from "./components/section/loading-screen";
 import PageWrapper from "./components/base/page-wrapper";
 import Footer from "./components/section/footer";
-import { workDetail } from "./@data/work-detail";
-import { works } from "./@data/works";
-import { home } from "./@data/home";
 import ContactPage from "./pages/contact";
 import StoriesAndCulture from "./pages/stories-and-culture";
 import Rundown from "./pages/ofi-project/rundown";
@@ -103,7 +100,6 @@ const App: React.FC = () => {
                       setIsHovered={setIsHovered}
                       scrollRotation={scrollRotation}
                       scale={scale}
-                      data={home.data.works}
                     />
                   </PageWrapper>
                 }
@@ -117,7 +113,6 @@ const App: React.FC = () => {
                       onMouseLeave={() => setIsHovered(false)}
                       scale={scale}
                       scrollRotation={scrollRotation}
-                      data={works.data}
                     />
                   </PageWrapper>
                 }
@@ -128,7 +123,6 @@ const App: React.FC = () => {
                   <PageWrapper>
                     <WorkDetails
                       scrollRotation={scrollRotation}
-                      workData={workDetail}
                     />
                   </PageWrapper>
                 }
